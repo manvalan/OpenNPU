@@ -1409,3 +1409,9 @@ mikilab session (RTL owner on v4-generic-area since CUTS_NEXT_TODO).
   Icarus regression 11/11, board MFN 515,968 cycles (2.588 ms at 199.34
   MHz, 2.728 ms at 189.15). The old v4_board_top_199/189 bitstreams do not
   compute depthwise layers.
+- 195.8 MHz (Michele: an intermediate clock is fine): the best 199.34 MHz
+  build after the post-route loop (-0.014 ns) with only the core MMCM's
+  CLKOUT0_DIVIDE_F set to 7.125 on the routed design -> WNS +0.075, WHS
+  +0.030, 0 routing errors: `bitstream/v4_board_area_196.bit/.bin`
+  (2.635 ms MobileFaceNet). Scripts `vivado/eco_postroute_loop.tcl`,
+  `vivado/eco_core_mmcm_divide.tcl` (paths of the mikilab session inside).

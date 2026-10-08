@@ -1,5 +1,24 @@
 # v4 board bitstreams
 
+## Generic accelerator, 195.8 MHz (2026-10-08)
+
+`v4_board_area_196.bit` / `.bin` -- same RTL as v4_board_area_189 (5fce52b),
+core MMCM CLKOUT0_DIVIDE_F 7.125: core 195.79 MHz (5.108 ns), ui_clk 155.0
+MHz. ECO of the best 199.34 MHz build (Vivado/v4_board_fix8 from-scratch
+P&R, then `vivado/eco_postroute_loop.tcl`: phys_opt / route_design loop,
+core WNS -0.107 -> -0.014 ns at 199.34 MHz), then ONLY the core MMCM's
+CLKOUT0_DIVIDE_F changed on the routed design
+(`vivado/eco_core_mmcm_divide.tcl`): 0 cells moved, 0 nets rerouted.
+WNS +0.075 ns (173,097 endpoints, 0 failing), WHS +0.030 ns, 0 routing
+errors, DRC warnings only (DPIP-1, DPOP-2, PLBUFGOPT-1, REQP-1709 = the
+MIG's PLL CLKOUT3 -> BUFH, inherent to the MIG). Reports:
+`docs/pnr/board/fix/m196/`. To rebuild from RTL set CLKOUT0_DIVIDE_F
+7.125 in rtl/v4_board_top.v (the committed RTL keeps 7.000).
+`.bit` sha256 aa8321ab18cf143baefa8e11f47e85116b2bcd4b6b57bf57420e7e07fc984ab7
+`.bin` sha256 672320a20e3d5666d57d345063bc75ff72abee6519a9b563035b62042cba4ba7
+Checkpoint (not in git): ~/Develop/FPGA-Neural/bitstreams/v4_board_area_196.dcp.
+MobileFaceNet 515,968 cycles = 2.635 ms at 195.79 MHz.
+
 ## Generic accelerator, depthwise fixed (2026-10-08, branch v4-generic-area)
 
 `v4_board_area_189.bit` / `.bin` -- the FIRST bitstream in which the
