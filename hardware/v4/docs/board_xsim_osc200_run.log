@@ -1,0 +1,100 @@
+Time resolution is 1 fs
+WARNING: file design.txt could not be opened
+ *** Warning: The analog data file design.txt for XADC instance tb.dut.u_mig.u_mig_7series_0_mig.temp_mon_enabled.u_tempmon.xadc_supplied_temperature.XADC_inst was not found. Use the SIM_MONITOR_FILE parameter to specify the analog data file name or use the default name: design.txt.
+
+############# Write Clocks PLLE2_ADV Parameters #############
+
+nCK_PER_CLK      =       2
+CLK_PERIOD       =    3226
+CLKIN1_PERIOD    =   3.226
+DIVCLK_DIVIDE    =       1
+CLKFBOUT_MULT    =       4
+VCO_PERIOD       =   807.0
+CLKOUT0_DIVIDE_F =       2
+CLKOUT1_DIVIDE   =       4
+CLKOUT2_DIVIDE   =      64
+CLKOUT3_DIVIDE   =       8
+CLKOUT0_PERIOD   =    1614
+CLKOUT1_PERIOD   =    3228
+CLKOUT2_PERIOD   =   51648
+CLKOUT3_PERIOD   =    6456
+CLKOUT4_PERIOD   =    6456
+############################################################
+
+############# MMCME2_ADV Parameters #############
+
+MMCM_MULT_F           =           4
+MMCM_VCO_FREQ (MHz)   = 619.000
+MMCM_VCO_PERIOD       = 1615.509
+#################################################
+
+tb.dut.u_mig.u_mig_7series_0_mig.u_memc_ui_top_std.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : BYTE_LANES_B0 = f BYTE_LANES_B1 = e DATA_CTL_B0 = f DATA_CTL_B1 = 0
+tb.dut.u_mig.u_mig_7series_0_mig.u_memc_ui_top_std.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : HIGHEST_LANE =           8 HIGHEST_LANE_B0 =           4 HIGHEST_LANE_B1 =           4
+tb.dut.u_mig.u_mig_7series_0_mig.u_memc_ui_top_std.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : HIGHEST_BANK =           2
+tb.dut.u_mig.u_mig_7series_0_mig.u_memc_ui_top_std.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : FREQ_REF_PERIOD         = 1613.00 
+tb.dut.u_mig.u_mig_7series_0_mig.u_memc_ui_top_std.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : DDR_TCK                 = 3226 
+tb.dut.u_mig.u_mig_7series_0_mig.u_memc_ui_top_std.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PO_S2_TAPS_SIZE         = 12.60 
+tb.dut.u_mig.u_mig_7series_0_mig.u_memc_ui_top_std.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PO_CIRC_BUF_EARLY       = 1 
+tb.dut.u_mig.u_mig_7series_0_mig.u_memc_ui_top_std.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PO_CIRC_BUF_OFFSET      = 1710.74 
+tb.dut.u_mig.u_mig_7series_0_mig.u_memc_ui_top_std.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PO_CIRC_BUF_META_ZONE   = 200.00 
+tb.dut.u_mig.u_mig_7series_0_mig.u_memc_ui_top_std.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PO_STG2_FINE_INTR_DLY   = 922.36 
+tb.dut.u_mig.u_mig_7series_0_mig.u_memc_ui_top_std.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PO_STG2_COARSE_INTR_DLY = 592.89 
+tb.dut.u_mig.u_mig_7series_0_mig.u_memc_ui_top_std.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PO_STG2_INTRINSIC_DELAY = 1515.26 
+tb.dut.u_mig.u_mig_7series_0_mig.u_memc_ui_top_std.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PO_CIRC_BUF_DELAY       = 60 
+tb.dut.u_mig.u_mig_7series_0_mig.u_memc_ui_top_std.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PO_INTRINSIC_DELAY      = 1515.26 
+tb.dut.u_mig.u_mig_7series_0_mig.u_memc_ui_top_std.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PO_DELAY                = 2271.35 
+tb.dut.u_mig.u_mig_7series_0_mig.u_memc_ui_top_std.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PO_OCLK_DELAY           = 0 
+tb.dut.u_mig.u_mig_7series_0_mig.u_memc_ui_top_std.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : L_PHY_0_PO_FINE_DELAY   = 60 
+tb.dut.u_mig.u_mig_7series_0_mig.u_memc_ui_top_std.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PI_STG1_INTRINSIC_DELAY = 0.00 
+tb.dut.u_mig.u_mig_7series_0_mig.u_memc_ui_top_std.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PI_STG2_INTRINSIC_DELAY = 897.11 
+tb.dut.u_mig.u_mig_7series_0_mig.u_memc_ui_top_std.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PI_INTRINSIC_DELAY      = 897.11 
+tb.dut.u_mig.u_mig_7series_0_mig.u_memc_ui_top_std.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PI_MAX_STG2_DELAY       = 793.90 
+tb.dut.u_mig.u_mig_7series_0_mig.u_memc_ui_top_std.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PI_OFFSET               = 174.00 
+tb.dut.u_mig.u_mig_7series_0_mig.u_memc_ui_top_std.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : PI_STG2_DELAY           = 174.00 
+tb.dut.u_mig.u_mig_7series_0_mig.u_memc_ui_top_std.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy :PI_STG2_DELAY_CAND       = 174.00 
+tb.dut.u_mig.u_mig_7series_0_mig.u_memc_ui_top_std.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : DEFAULT_RCLK_DELAY      = 14 
+tb.dut.u_mig.u_mig_7series_0_mig.u_memc_ui_top_std.mem_intfc0.ddr_phy_top0.u_ddr_mc_phy_wrapper.u_ddr_mc_phy : RCLK_SELECT_EDGE        = 111 
+tb.gen_mem[0].u_comp_ddr3.reset at time 3322192.0 ps WARNING: 200 us is required before RST_N goes inactive.
+tb.gen_mem[1].u_comp_ddr3.reset at time 3322192.0 ps WARNING: 200 us is required before RST_N goes inactive.
+tb.gen_mem[0].u_comp_ddr3.cmd_task at time 3361659.0 ps WARNING: 500 us is required after RST_N goes inactive before CKE goes active.
+tb.gen_mem[1].u_comp_ddr3.cmd_task at time 3361659.0 ps WARNING: 500 us is required after RST_N goes inactive before CKE goes active.
+  DDR3 preload: 33277 bursts per chip
+PHY_INIT: Memory Initialization completed at 8580256.0 ps
+PHY_INIT: Phaser_In Phase Locked at 9651225.0 ps
+PHY_INIT: Phaser_In DQSFOUND completed at 21683482.0 ps
+tb.gen_mem[1].u_comp_ddr3.dqs_pos_timing_check: at time 25726211.0 ps WARNING: tWLS violation on DQS bit  0 positive edge.  Indeterminate CK capture is possible.
+tb.gen_mem[1].u_comp_ddr3.dqs_pos_timing_check: at time 25726211.0 ps WARNING: tWLS violation on DQS bit  1 positive edge.  Indeterminate CK capture is possible.
+tb.gen_mem[0].u_comp_ddr3.dqs_pos_timing_check: at time 25726211.0 ps WARNING: tWLS violation on DQS bit  0 positive edge.  Indeterminate CK capture is possible.
+tb.gen_mem[0].u_comp_ddr3.dqs_pos_timing_check: at time 25726211.0 ps WARNING: tWLS violation on DQS bit  1 positive edge.  Indeterminate CK capture is possible.
+tb.gen_mem[1].u_comp_ddr3.dqs_pos_timing_check: at time 25729437.0 ps WARNING: tWLS violation on DQS bit  0 positive edge.  Indeterminate CK capture is possible.
+tb.gen_mem[1].u_comp_ddr3.dqs_pos_timing_check: at time 25729437.0 ps WARNING: tWLS violation on DQS bit  1 positive edge.  Indeterminate CK capture is possible.
+tb.gen_mem[0].u_comp_ddr3.dqs_pos_timing_check: at time 25729437.0 ps WARNING: tWLS violation on DQS bit  0 positive edge.  Indeterminate CK capture is possible.
+tb.gen_mem[0].u_comp_ddr3.dqs_pos_timing_check: at time 25729437.0 ps WARNING: tWLS violation on DQS bit  1 positive edge.  Indeterminate CK capture is possible.
+tb.gen_mem[1].u_comp_ddr3.dqs_pos_timing_check: at time 25732663.0 ps WARNING: tWLS violation on DQS bit  0 positive edge.  Indeterminate CK capture is possible.
+tb.gen_mem[1].u_comp_ddr3.dqs_pos_timing_check: at time 25732663.0 ps WARNING: tWLS violation on DQS bit  1 positive edge.  Indeterminate CK capture is possible.
+tb.gen_mem[0].u_comp_ddr3.dqs_pos_timing_check: at time 25732663.0 ps WARNING: tWLS violation on DQS bit  0 positive edge.  Indeterminate CK capture is possible.
+tb.gen_mem[0].u_comp_ddr3.dqs_pos_timing_check: at time 25732663.0 ps WARNING: tWLS violation on DQS bit  1 positive edge.  Indeterminate CK capture is possible.
+tb.gen_mem[1].u_comp_ddr3.dqs_pos_timing_check: at time 25735890.0 ps WARNING: tWLS violation on DQS bit  0 positive edge.  Indeterminate CK capture is possible.
+tb.gen_mem[1].u_comp_ddr3.dqs_pos_timing_check: at time 25735890.0 ps WARNING: tWLS violation on DQS bit  1 positive edge.  Indeterminate CK capture is possible.
+tb.gen_mem[0].u_comp_ddr3.dqs_pos_timing_check: at time 25735890.0 ps WARNING: tWLS violation on DQS bit  0 positive edge.  Indeterminate CK capture is possible.
+tb.gen_mem[0].u_comp_ddr3.dqs_pos_timing_check: at time 25735890.0 ps WARNING: tWLS violation on DQS bit  1 positive edge.  Indeterminate CK capture is possible.
+tb.gen_mem[1].u_comp_ddr3.dqs_pos_timing_check: at time 25739115.0 ps WARNING: tWLS violation on DQS bit  0 positive edge.  Indeterminate CK capture is possible.
+tb.gen_mem[1].u_comp_ddr3.dqs_pos_timing_check: at time 25739115.0 ps WARNING: tWLS violation on DQS bit  1 positive edge.  Indeterminate CK capture is possible.
+tb.gen_mem[0].u_comp_ddr3.dqs_pos_timing_check: at time 25739115.0 ps WARNING: tWLS violation on DQS bit  0 positive edge.  Indeterminate CK capture is possible.
+tb.gen_mem[0].u_comp_ddr3.dqs_pos_timing_check: at time 25739115.0 ps WARNING: tWLS violation on DQS bit  1 positive edge.  Indeterminate CK capture is possible.
+PHY_INIT: Write Leveling completed at 25747999.0 ps
+PHY_INIT: Read Leveling Stage 1 completed at 47006063.0 ps
+PHY_INIT : PRBS/PER_BIT calibration completed at 47006063.0 ps
+PHY_INIT : COMPLEX OCLKDELAY calibration completed at 47006063.0 ps
+PHY_INIT: Write Calibration completed at 52889934.0 ps
+PHY_INIT: Write Calibration completed at 64877031.0 ps
+[66347899.0 ps] calibration complete
+  DDR3 preload read back over SPI: OK
+[1756427899.0 ps] header + 40 descriptors written over SPI
+[v4_core] network done: 460586 cycles, of which 6799 waiting for parameter loads
+  STATUS 00000012; start->done seen by the host 2341700000.0 ps ps
+  stats (REAL MIG + DDR3 model): core cycles 460587, waiting for parameters 6799, error 0, magic 344e4e56
+  embedding (8 words over SPI): bit-exact
+=== v4 board, real MIG: 40 passes, 460587 core cycles (6799 waiting for DDR3), 0 errors ===
+$finish called at time : 4625707899 ps : File "/home/michele/Develop/FPGA-Neural/.claude/worktrees/bridge-cse_01MDyNoy7bgTVcQH8bRdCeFL/hardware/v4/sim/tb_v4_board_xsim.v" Line 276
+INFO: xsimkernel Simulation Memory Usage: 471204 KB (Peak: 536740 KB), Simulation CPU Usage: 12894660 ms

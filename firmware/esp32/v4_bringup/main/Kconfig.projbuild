@@ -1,0 +1,68 @@
+menu "FPGA-Neural v4 bring-up"
+
+    config V4_SYS_RST
+        int "sys_rst GPIO (active low, -1 = not wired)"
+        default 15
+    config V4_DATA_READY
+        int "data_ready_n GPIO (-1 = not wired)"
+        default 16
+    config V4_QSPI_MHZ
+        int "Quad-SPI data port clock (MHz)"
+        default 80
+        help
+            80 MHz needs the IO_MUX pins (GPIO 9..14) and closes with
+            +0.83 ns in the 199 MHz build; use 40 if the board link is
+            marginal.
+    config V4_TCK
+        int "JTAG TCK GPIO (-1 = JTAG not wired)"
+        default 1
+    config V4_TMS
+        int "JTAG TMS GPIO"
+        default 2
+    config V4_TDI
+        int "JTAG TDI GPIO"
+        default 17
+    config V4_TDO
+        int "JTAG TDO GPIO"
+        default 18
+    config V4_PROGRAM_B
+        int "PROGRAM_B GPIO (open drain)"
+        default 21
+    config V4_INIT_B
+        int "INIT_B GPIO (-1 = not wired)"
+        default 47
+    config V4_DONE
+        int "DONE GPIO"
+        default 48
+    config V4_FPGA_FLASH_MODE
+        int "Config flash: 0 never write, 1 write if the FPGA does not boot, 2 always rewrite"
+        range 0 2
+        default 1
+        help
+            The bitstream comes from the "fpga" data partition (.bit file).
+            1: if DONE stays low after power-on (blank or bad flash), load
+            the bitstream over JTAG, write it into the flash and reboot the
+            FPGA from it. 2: rewrite the flash at every start (update).
+
+    config V4_TEMP_MONITOR
+        bool "Monitor the FPGA die temperature (XADC over JTAG)"
+        default y
+        help
+            Reads the XADC temperature and VCCINT/VCCAUX/VCCBRAM through the
+            JTAG pins (fpga_v4_read_sensors) at start and every
+            V4_TEMP_EVERY inferences; stops the benchmark above
+            V4_TEMP_ALARM_C. Needs the JTAG GPIOs wired.
+    config V4_TEMP_ALARM_C
+        int "FPGA temperature alarm (C)"
+        depends on V4_TEMP_MONITOR
+        default 85
+    config V4_TEMP_EVERY
+        int "Temperature check every N inferences"
+        depends on V4_TEMP_MONITOR
+        default 10
+
+    config V4_BENCH_RUNS
+        int "Timed inferences after the self test"
+        default 100
+
+endmenu

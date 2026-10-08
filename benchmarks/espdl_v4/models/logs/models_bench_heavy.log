@@ -1,0 +1,62 @@
+/Users/michelebigi/Development/FPGA-Neural/test-mac/repo/benchmarks/espdl_v4/export_espdl.py:137: DeprecationWarning: You are using the legacy TorchScript-based ONNX export. Starting in PyTorch 2.9, the new torch.export-based ONNX exporter has become the default. Learn more about the new export logic: https://docs.pytorch.org/docs/stable/onnx_export.html. For exporting control flow: https://pytorch.org/tutorials/beginner/onnx/export_control_flow_model_to_onnx_tutorial.html
+  torch.onnx.export(f, x_real, onnx_path, input_names=["input"], output_names=["output"],
+bench_heavy: parameter pack vs net.bin: 33 of 2847940 bytes differ
+bench_heavy: FloatNet vs QNet float (float64) max diff 2.52e-13, output (1, 100, 1, 1)
+
+    ___________ ____        ____  ____  ____
+   / ____/ ___// __ \      / __ \/ __ \/ __ \
+  / __/  \__ \/ /_/ /_____/ /_/ / /_/ / / / /
+ / /___ ___/ / ____/_____/ ____/ ____/ /_/ /
+/_____//____/_/         /_/   /_/    \___\_\
+
+
+[10:15:42] ConvTranspose Decomposition Pass Running ... Finished.
+[10:15:42] PPQ Quantization Fusion Pass Running ...       Finished.
+[10:15:42] PPQ Quantize Simplify Pass Running ...         Finished.
+[10:15:42] PPQ Parameter Quantization Pass Running ...    Finished.
+[10:15:42] PPQ Runtime Calibration Pass Running ...       Calibration Progress(Phase 1):   0%|          | 0/32 [00:00<?, ?it/s]Calibration Progress(Phase 1):  31%|███▏      | 10/32 [00:00<00:00, 91.64it/s]Calibration Progress(Phase 1):  62%|██████▎   | 20/32 [00:00<00:00, 91.23it/s]Calibration Progress(Phase 1):  94%|█████████▍| 30/32 [00:00<00:00, 90.64it/s]Calibration Progress(Phase 1): 100%|██████████| 32/32 [00:00<00:00, 91.04it/s]
+Calibration Progress(Phase 2):   0%|          | 0/32 [00:00<?, ?it/s]Calibration Progress(Phase 2):  28%|██▊       | 9/32 [00:00<00:00, 82.19it/s]Calibration Progress(Phase 2):  56%|█████▋    | 18/32 [00:00<00:00, 82.26it/s]Calibration Progress(Phase 2):  84%|████████▍ | 27/32 [00:00<00:00, 81.50it/s]Calibration Progress(Phase 2): 100%|██████████| 32/32 [00:00<00:00, 81.45it/s]
+Finished.
+[10:15:43] PPQ Quantization Alignment Pass Running ...    Finished.
+[10:15:43] PPQ Passive Parameter Quantization Running ... Finished.
+--------- Network Snapshot ---------
+Num of Op:                    [26]
+Num of Quantized Op:          [26]
+Num of Variable:              [51]
+Num of Quantized Var:         [51]
+------- Quantization Snapshot ------
+Num of Quant Config:          [78]
+ACTIVATED:                    [25]
+OVERLAPPED:                   [35]
+PASSIVE:                      [18]
+Network Quantization Finished.
+Analysing Graphwise Quantization Error(Phrase 1)::   0%|          | 0/8 [00:00<?, ?it/s]Analysing Graphwise Quantization Error(Phrase 1):: 100%|██████████| 8/8 [00:00<00:00, 73.98it/s]Analysing Graphwise Quantization Error(Phrase 1):: 100%|██████████| 8/8 [00:00<00:00, 66.06it/s]
+Analysing Graphwise Quantization Error(Phrase 2)::   0%|          | 0/8 [00:00<?, ?it/s]Analysing Graphwise Quantization Error(Phrase 2)::  75%|███████▌  | 6/8 [00:00<00:00, 54.51it/s]Analysing Graphwise Quantization Error(Phrase 2):: 100%|██████████| 8/8 [00:00<00:00, 47.80it/s]
+Layer           | NOISE:SIGNAL POWER RATIO 
+/convs.11/Conv: | ████████████████████ | 72.849%
+/convs.10/Conv: | █████                | 17.099%
+/convs.9/Conv:  | ███                  | 9.228%
+/convs.8/Conv:  | █                    | 3.342%
+/convs.7/Conv:  | █                    | 2.693%
+/convs.6/Conv:  |                      | 1.827%
+/convs.5/Conv:  |                      | 1.198%
+/convs.4/Conv:  |                      | 0.822%
+/convs.3/Conv:  |                      | 0.515%
+/convs.2/Conv:  |                      | 0.317%
+/convs.1/Conv:  |                      | 0.087%
+/convs.0/Conv:  |                      | 0.017%
+Analysing Layerwise quantization error::   0%|          | 0/12 [00:00<?, ?it/s]Analysing Layerwise quantization error::   8%|▊         | 1/12 [00:00<00:01,  6.82it/s]Analysing Layerwise quantization error::  17%|█▋        | 2/12 [00:00<00:01,  6.74it/s]Analysing Layerwise quantization error::  25%|██▌       | 3/12 [00:00<00:01,  6.70it/s]Analysing Layerwise quantization error::  33%|███▎      | 4/12 [00:00<00:01,  6.70it/s]Analysing Layerwise quantization error::  42%|████▏     | 5/12 [00:00<00:01,  6.71it/s]Analysing Layerwise quantization error::  50%|█████     | 6/12 [00:00<00:00,  6.78it/s]Analysing Layerwise quantization error::  58%|█████▊    | 7/12 [00:01<00:00,  6.77it/s]Analysing Layerwise quantization error::  67%|██████▋   | 8/12 [00:01<00:00,  6.60it/s]Analysing Layerwise quantization error::  75%|███████▌  | 9/12 [00:01<00:00,  6.59it/s]Analysing Layerwise quantization error::  83%|████████▎ | 10/12 [00:01<00:00,  6.62it/s]Analysing Layerwise quantization error::  92%|█████████▏| 11/12 [00:01<00:00,  6.62it/s]Analysing Layerwise quantization error:: 100%|██████████| 12/12 [00:01<00:00,  6.65it/s]Analysing Layerwise quantization error:: 100%|██████████| 12/12 [00:01<00:00,  6.67it/s]
+Layer           | NOISE:SIGNAL POWER RATIO 
+/convs.2/Conv:  | ████████████████████ | 30.717%
+/convs.5/Conv:  | ██████               | 10.070%
+/convs.0/Conv:  | ████                 | 6.718%
+/convs.1/Conv:  | ██                   | 3.355%
+/convs.9/Conv:  | █                    | 2.482%
+/convs.3/Conv:  | █                    | 2.285%
+/convs.4/Conv:  | █                    | 1.618%
+/convs.8/Conv:  |                      | 1.066%
+/convs.11/Conv: |                      | 0.910%
+/convs.6/Conv:  |                      | 0.487%
+/convs.10/Conv: |                      | 0.462%
+/convs.7/Conv:  |                      | 0.402%
+wrote models/bench_heavy/model.onnx models/bench_heavy/model.espdl meta.json

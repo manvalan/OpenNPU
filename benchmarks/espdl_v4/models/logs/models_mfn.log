@@ -1,0 +1,141 @@
+/Users/michelebigi/Development/FPGA-Neural/test-mac/repo/benchmarks/espdl_v4/export_espdl.py:137: DeprecationWarning: You are using the legacy TorchScript-based ONNX export. Starting in PyTorch 2.9, the new torch.export-based ONNX exporter has become the default. Learn more about the new export logic: https://docs.pytorch.org/docs/stable/onnx_export.html. For exporting control flow: https://pytorch.org/tutorials/beginner/onnx/export_control_flow_model_to_onnx_tutorial.html
+  torch.onnx.export(f, x_real, onnx_path, input_names=["input"], output_names=["output"],
+mfn: parameter pack vs net.bin: 4 of 1025696 bytes differ
+mfn: FloatNet vs QNet float (float64) max diff 7.08e-14, output (1, 128, 1, 1)
+
+    ___________ ____        ____  ____  ____
+   / ____/ ___// __ \      / __ \/ __ \/ __ \
+  / __/  \__ \/ /_/ /_____/ /_/ / /_/ / / / /
+ / /___ ___/ / ____/_____/ ____/ ____/ /_/ /
+/_____//____/_/         /_/   /_/    \___\_\
+
+
+[10:15:56] ConvTranspose Decomposition Pass Running ... Finished.
+[10:15:56] PPQ Quantization Fusion Pass Running ...       Finished.
+[10:15:56] PPQ Quantize Simplify Pass Running ...         Finished.
+[10:15:56] PPQ Parameter Quantization Pass Running ...    Finished.
+[10:15:56] PPQ Runtime Calibration Pass Running ...       Calibration Progress(Phase 1):   0%|          | 0/32 [00:00<?, ?it/s]Calibration Progress(Phase 1):  12%|█▎        | 4/32 [00:00<00:00, 37.70it/s]Calibration Progress(Phase 1):  28%|██▊       | 9/32 [00:00<00:00, 39.55it/s]Calibration Progress(Phase 1):  44%|████▍     | 14/32 [00:00<00:00, 40.37it/s]Calibration Progress(Phase 1):  59%|█████▉    | 19/32 [00:00<00:00, 41.18it/s]Calibration Progress(Phase 1):  75%|███████▌  | 24/32 [00:00<00:00, 41.63it/s]Calibration Progress(Phase 1):  91%|█████████ | 29/32 [00:00<00:00, 41.93it/s]Calibration Progress(Phase 1): 100%|██████████| 32/32 [00:00<00:00, 41.35it/s]
+Calibration Progress(Phase 2):   0%|          | 0/32 [00:00<?, ?it/s]Calibration Progress(Phase 2):  12%|█▎        | 4/32 [00:00<00:00, 36.72it/s]Calibration Progress(Phase 2):  25%|██▌       | 8/32 [00:00<00:00, 36.70it/s]Calibration Progress(Phase 2):  38%|███▊      | 12/32 [00:00<00:00, 36.78it/s]Calibration Progress(Phase 2):  50%|█████     | 16/32 [00:00<00:00, 36.91it/s]Calibration Progress(Phase 2):  62%|██████▎   | 20/32 [00:00<00:00, 36.98it/s]Calibration Progress(Phase 2):  75%|███████▌  | 24/32 [00:00<00:00, 36.94it/s]Calibration Progress(Phase 2):  88%|████████▊ | 28/32 [00:00<00:00, 36.53it/s]Calibration Progress(Phase 2): 100%|██████████| 32/32 [00:00<00:00, 36.42it/s]Calibration Progress(Phase 2): 100%|██████████| 32/32 [00:00<00:00, 36.64it/s]
+Finished.
+[10:15:58] PPQ Quantization Alignment Pass Running ...    Finished.
+[10:15:58] PPQ Passive Parameter Quantization Running ... Finished.
+--------- Network Snapshot ---------
+Num of Op:                    [95]
+Num of Quantized Op:          [95]
+Num of Variable:              [229]
+Num of Quantized Var:         [229]
+------- Quantization Snapshot ------
+Num of Quant Config:          [335]
+ACTIVATED:                    [167]
+OVERLAPPED:                   [82]
+PASSIVE:                      [86]
+Network Quantization Finished.
+Analysing Graphwise Quantization Error(Phrase 1)::   0%|          | 0/8 [00:00<?, ?it/s]Analysing Graphwise Quantization Error(Phrase 1)::  38%|███▊      | 3/8 [00:00<00:00, 25.14it/s]Analysing Graphwise Quantization Error(Phrase 1)::  75%|███████▌  | 6/8 [00:00<00:00, 25.45it/s]Analysing Graphwise Quantization Error(Phrase 1):: 100%|██████████| 8/8 [00:00<00:00, 22.70it/s]
+Analysing Graphwise Quantization Error(Phrase 2)::   0%|          | 0/8 [00:00<?, ?it/s]Analysing Graphwise Quantization Error(Phrase 2)::  25%|██▌       | 2/8 [00:00<00:00, 19.01it/s]Analysing Graphwise Quantization Error(Phrase 2)::  50%|█████     | 4/8 [00:00<00:00, 19.10it/s]Analysing Graphwise Quantization Error(Phrase 2)::  75%|███████▌  | 6/8 [00:00<00:00, 19.02it/s]Analysing Graphwise Quantization Error(Phrase 2):: 100%|██████████| 8/8 [00:00<00:00, 19.06it/s]Analysing Graphwise Quantization Error(Phrase 2):: 100%|██████████| 8/8 [00:00<00:00, 16.93it/s]
+Layer           | NOISE:SIGNAL POWER RATIO 
+/convs.49/Conv: | ████████████████████ | 50.460%
+/convs.48/Conv: | ██████               | 16.077%
+/convs.46/Conv: | █████                | 12.042%
+/convs.45/Conv: | ████                 | 11.121%
+/convs.43/Conv: | ████                 | 10.673%
+/convs.47/Conv: | ████                 | 10.564%
+/convs.44/Conv: | ████                 | 9.377%
+/convs.42/Conv: | ████                 | 8.964%
+/convs.41/Conv: | ███                  | 8.043%
+/convs.40/Conv: | ███                  | 7.929%
+/convs.37/Conv: | ███                  | 7.738%
+/convs.34/Conv: | ███                  | 7.512%
+/convs.39/Conv: | ███                  | 6.888%
+/convs.31/Conv: | ███                  | 6.859%
+/convs.36/Conv: | ███                  | 6.677%
+/convs.28/Conv: | ██                   | 6.176%
+/convs.33/Conv: | ██                   | 6.139%
+/convs.38/Conv: | ██                   | 5.789%
+/convs.30/Conv: | ██                   | 5.617%
+/convs.35/Conv: | ██                   | 5.602%
+/convs.32/Conv: | ██                   | 5.214%
+/convs.25/Conv: | ██                   | 5.205%
+/convs.27/Conv: | ██                   | 5.030%
+/convs.29/Conv: | ██                   | 4.749%
+/convs.24/Conv: | ██                   | 4.439%
+/convs.26/Conv: | ██                   | 4.263%
+/convs.22/Conv: | ██                   | 4.159%
+/convs.23/Conv: | █                    | 3.727%
+/convs.21/Conv: | █                    | 3.677%
+/convs.20/Conv: | █                    | 3.008%
+/convs.19/Conv: | █                    | 2.927%
+/convs.16/Conv: | █                    | 2.785%
+/convs.18/Conv: | █                    | 2.426%
+/convs.13/Conv: | █                    | 2.311%
+/convs.15/Conv: | █                    | 2.138%
+/convs.17/Conv: | █                    | 1.975%
+/convs.10/Conv: | █                    | 1.928%
+/convs.12/Conv: | █                    | 1.920%
+/convs.14/Conv: | █                    | 1.746%
+/convs.9/Conv:  | █                    | 1.528%
+/convs.7/Conv:  | █                    | 1.496%
+/convs.11/Conv: | █                    | 1.490%
+/convs.8/Conv:  |                      | 1.199%
+/convs.6/Conv:  |                      | 1.145%
+/convs.5/Conv:  |                      | 0.873%
+/convs.4/Conv:  |                      | 0.804%
+/convs.3/Conv:  |                      | 0.613%
+/convs.2/Conv:  |                      | 0.381%
+/convs.1/Conv:  |                      | 0.186%
+/convs.0/Conv:  |                      | 0.047%
+Analysing Layerwise quantization error::   0%|          | 0/50 [00:00<?, ?it/s]Analysing Layerwise quantization error::   2%|▏         | 1/50 [00:00<00:16,  2.98it/s]Analysing Layerwise quantization error::   4%|▍         | 2/50 [00:00<00:15,  3.03it/s]Analysing Layerwise quantization error::   6%|▌         | 3/50 [00:00<00:15,  3.04it/s]Analysing Layerwise quantization error::   8%|▊         | 4/50 [00:01<00:15,  3.06it/s]Analysing Layerwise quantization error::  10%|█         | 5/50 [00:01<00:14,  3.08it/s]Analysing Layerwise quantization error::  12%|█▏        | 6/50 [00:01<00:14,  3.06it/s]Analysing Layerwise quantization error::  14%|█▍        | 7/50 [00:02<00:14,  3.06it/s]Analysing Layerwise quantization error::  16%|█▌        | 8/50 [00:02<00:13,  3.05it/s]Analysing Layerwise quantization error::  18%|█▊        | 9/50 [00:02<00:13,  2.95it/s]Analysing Layerwise quantization error::  20%|██        | 10/50 [00:03<00:13,  2.93it/s]Analysing Layerwise quantization error::  22%|██▏       | 11/50 [00:03<00:13,  2.97it/s]Analysing Layerwise quantization error::  24%|██▍       | 12/50 [00:03<00:12,  2.97it/s]Analysing Layerwise quantization error::  26%|██▌       | 13/50 [00:04<00:12,  3.01it/s]Analysing Layerwise quantization error::  28%|██▊       | 14/50 [00:04<00:11,  3.03it/s]Analysing Layerwise quantization error::  30%|███       | 15/50 [00:04<00:11,  3.05it/s]Analysing Layerwise quantization error::  32%|███▏      | 16/50 [00:05<00:11,  3.06it/s]Analysing Layerwise quantization error::  34%|███▍      | 17/50 [00:05<00:10,  3.04it/s]Analysing Layerwise quantization error::  36%|███▌      | 18/50 [00:05<00:10,  3.01it/s]Analysing Layerwise quantization error::  38%|███▊      | 19/50 [00:06<00:10,  3.01it/s]Analysing Layerwise quantization error::  40%|████      | 20/50 [00:06<00:09,  3.02it/s]Analysing Layerwise quantization error::  42%|████▏     | 21/50 [00:06<00:09,  3.05it/s]Analysing Layerwise quantization error::  44%|████▍     | 22/50 [00:07<00:09,  3.02it/s]Analysing Layerwise quantization error::  46%|████▌     | 23/50 [00:07<00:08,  3.04it/s]Analysing Layerwise quantization error::  48%|████▊     | 24/50 [00:07<00:08,  3.07it/s]Analysing Layerwise quantization error::  50%|█████     | 25/50 [00:08<00:08,  3.09it/s]Analysing Layerwise quantization error::  52%|█████▏    | 26/50 [00:08<00:07,  3.11it/s]Analysing Layerwise quantization error::  54%|█████▍    | 27/50 [00:08<00:07,  3.12it/s]Analysing Layerwise quantization error::  56%|█████▌    | 28/50 [00:09<00:07,  3.12it/s]Analysing Layerwise quantization error::  58%|█████▊    | 29/50 [00:09<00:06,  3.13it/s]Analysing Layerwise quantization error::  60%|██████    | 30/50 [00:09<00:06,  3.13it/s]Analysing Layerwise quantization error::  62%|██████▏   | 31/50 [00:10<00:06,  3.11it/s]Analysing Layerwise quantization error::  64%|██████▍   | 32/50 [00:10<00:05,  3.11it/s]Analysing Layerwise quantization error::  66%|██████▌   | 33/50 [00:10<00:05,  3.11it/s]Analysing Layerwise quantization error::  68%|██████▊   | 34/50 [00:11<00:05,  3.11it/s]Analysing Layerwise quantization error::  70%|███████   | 35/50 [00:11<00:04,  3.11it/s]Analysing Layerwise quantization error::  72%|███████▏  | 36/50 [00:11<00:04,  3.11it/s]Analysing Layerwise quantization error::  74%|███████▍  | 37/50 [00:12<00:04,  3.08it/s]Analysing Layerwise quantization error::  76%|███████▌  | 38/50 [00:12<00:03,  3.03it/s]Analysing Layerwise quantization error::  78%|███████▊  | 39/50 [00:12<00:03,  3.03it/s]Analysing Layerwise quantization error::  80%|████████  | 40/50 [00:13<00:03,  3.05it/s]Analysing Layerwise quantization error::  82%|████████▏ | 41/50 [00:13<00:02,  3.06it/s]Analysing Layerwise quantization error::  84%|████████▍ | 42/50 [00:13<00:02,  3.07it/s]Analysing Layerwise quantization error::  86%|████████▌ | 43/50 [00:14<00:02,  3.08it/s]Analysing Layerwise quantization error::  88%|████████▊ | 44/50 [00:14<00:02,  2.74it/s]Analysing Layerwise quantization error::  90%|█████████ | 45/50 [00:14<00:01,  2.77it/s]Analysing Layerwise quantization error::  92%|█████████▏| 46/50 [00:15<00:01,  2.85it/s]Analysing Layerwise quantization error::  94%|█████████▍| 47/50 [00:15<00:01,  2.92it/s]Analysing Layerwise quantization error::  96%|█████████▌| 48/50 [00:15<00:00,  2.97it/s]Analysing Layerwise quantization error::  98%|█████████▊| 49/50 [00:16<00:00,  3.00it/s]Analysing Layerwise quantization error:: 100%|██████████| 50/50 [00:16<00:00,  3.03it/s]Analysing Layerwise quantization error:: 100%|██████████| 50/50 [00:16<00:00,  3.03it/s]
+Layer           | NOISE:SIGNAL POWER RATIO 
+/convs.48/Conv: | ████████████████████ | 4.044%
+/convs.2/Conv:  | █████████████████    | 3.416%
+/convs.0/Conv:  | █████████████████    | 3.374%
+/convs.1/Conv:  | ███████████████      | 2.961%
+/convs.3/Conv:  | ███████████          | 2.192%
+/convs.5/Conv:  | ██████████           | 2.040%
+/convs.38/Conv: | ████████             | 1.556%
+/convs.21/Conv: | ███████              | 1.475%
+/convs.4/Conv:  | ███████              | 1.437%
+/convs.49/Conv: | █████                | 1.093%
+/convs.19/Conv: | █████                | 1.079%
+/convs.6/Conv:  | █████                | 1.037%
+/convs.18/Conv: | ████                 | 0.946%
+/convs.17/Conv: | ████                 | 0.890%
+/convs.7/Conv:  | ████                 | 0.800%
+/convs.8/Conv:  | ███                  | 0.649%
+/convs.9/Conv:  | ███                  | 0.560%
+/convs.16/Conv: | ██                   | 0.525%
+/convs.11/Conv: | ██                   | 0.470%
+/convs.10/Conv: | ██                   | 0.440%
+/convs.24/Conv: | ██                   | 0.426%
+/convs.39/Conv: | ██                   | 0.354%
+/convs.15/Conv: | █                    | 0.334%
+/convs.20/Conv: | █                    | 0.299%
+/convs.40/Conv: | █                    | 0.295%
+/convs.12/Conv: | █                    | 0.285%
+/convs.13/Conv: | █                    | 0.284%
+/convs.28/Conv: | █                    | 0.277%
+/convs.34/Conv: | █                    | 0.271%
+/convs.42/Conv: | █                    | 0.270%
+/convs.23/Conv: | █                    | 0.251%
+/convs.14/Conv: | █                    | 0.233%
+/convs.32/Conv: | █                    | 0.213%
+/convs.25/Conv: | █                    | 0.200%
+/convs.31/Conv: | █                    | 0.191%
+/convs.22/Conv: | █                    | 0.189%
+/convs.41/Conv: | █                    | 0.172%
+/convs.47/Conv: | █                    | 0.159%
+/convs.29/Conv: | █                    | 0.158%
+/convs.27/Conv: | █                    | 0.153%
+/convs.26/Conv: |                      | 0.144%
+/convs.30/Conv: |                      | 0.126%
+/convs.44/Conv: |                      | 0.122%
+/convs.37/Conv: |                      | 0.113%
+/convs.35/Conv: |                      | 0.108%
+/convs.45/Conv: |                      | 0.104%
+/convs.46/Conv: |                      | 0.096%
+/convs.36/Conv: |                      | 0.087%
+/convs.33/Conv: |                      | 0.072%
+/convs.43/Conv: |                      | 0.052%
+[38;5;2m[INFO][ESPDL][2026-10-08 10:16:15]:  [mskip not QuantableOperation
+[38;5;2m[INFO][ESPDL][2026-10-08 10:16:15]:  [mskip not QuantableOperation
+[38;5;2m[INFO][ESPDL][2026-10-08 10:16:15]:  [mskip not QuantableOperation
+wrote models/mfn/model.onnx models/mfn/model.espdl meta.json

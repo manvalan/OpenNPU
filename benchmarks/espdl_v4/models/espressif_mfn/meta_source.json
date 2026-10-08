@@ -1,0 +1,1 @@
+{"source": "espressif/human_face_recognition 0.3.2 (ESP component registry), models/s3/human_face_feat_mfn_s8_v1.espdl", "note": "Espressif trained and quantized MobileFaceNet; used only for timing (its output is not compared with the v4 networks)"}

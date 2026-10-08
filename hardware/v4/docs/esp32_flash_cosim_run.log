@@ -1,0 +1,78 @@
+## sim/esp32_cosim/run_flash_cosim.sh, FLASH_XFER at 1.6 MHz (driver default), 2026-10-06
+
+### 1. jtag_tap_test + 300-byte image run (SMALL=1), complete output
+E (fpga_v4_config) JTAG IDCODE 0x13636093, expected XC7A100T 0x03631093
+E (fpga_v4_config) DONE not set after JSTART (IR capture 0x11): bitstream rejected
+E (fpga_v4_config) not a 7-series bitstream (no sync word)
+jtag_tap_test: fpga_v4_jtag_* against the TAP model
+  ok   .bit header parsed: payload 60000 bytes at offset 94
+  ok   IDCODE read 0x13631093
+  ok   load_sram: ESP_OK, DONE 1, 480000 CFG_IN bits (payload 480000), 482126 TCK, INIT waited until 2000 us
+  ok   CFG_IN data started after JPROGRAM and INIT complete
+  ok   JSTART then 2002 TCK in Run-Test/Idle, TAP left in Run-Test/Idle
+  ok   load_sram with a bare payload (.bin): ESP_OK
+  ok   wrong IDCODE refused before JPROGRAM (0x108)
+  ok   corrupted payload: DONE stays low, error reported (0x108)
+  ok   image without sync word refused (0x102)
+  ok   XADC over JTAG: 55.00 C, VCCINT 1.000 V, VCCAUX 1.800 V, VCCBRAM 0.990 V (4 DRP reads)
+  ok   fpga_v4_read_temp_c: 55.00 C
+  ok   XADC answering 0 (JTAG_XADC disabled) reported as error (0x108)
+ALL TESTS PASSED (JTAG TAP model)
+config-flash co-simulation (management SPI 10 MHz, FLASH_XFER)
+  ok   JEDEC ID 0xef4016
+  ok   WREN + 2 trailing bytes (fpga_neural_flash_xfer) not taken by the model: SR1 0x00
+  ok   erase 0x10000..0x21FFF (D8h + 2 x 20h): erased edges read 0xFF, 0x22000 preserved (ESP_OK)
+I (fpga_v4_config) flash W25Q32JV: erase + program 300 bytes at 0x000000
+I (fpga_v4_config) flash programmed and verified (2 pages written)
+I (fpga_v4_config) FPGA configured from flash (DONE high)
+  ok   program 300 bytes at 0 + verify + PROGRAM_B + DONE: ESP_OK
+  ok   read across the end of the image (0x12c onward erased)
+  ok   unaligned address refused (ESP_ERR_INVALID_ARG)
+ALL TESTS PASSED (config-flash co-simulation)
+  [bench] PROGRAM_B released: flash holds a bitstream, DONE 1
+  driver finished (code 0) at 6884640000 ns: 70 management SPI transactions
+  flash model: 6 WREN, 3 sector erase, 1 block erase, 2 page program, 1 rejected, 0 bytes programmed over 0 bits
+BENCH PASS: flash array identical to the expected image (0x30000 bytes)
+sim/esp32_cosim/tb_v4_flash_cosim.v:188: $finish called at 6884640000 (1ps)
+
+real	34m18,809s
+user	34m18,532s
+sys	0m0,573s
+
+### 2. 4400-byte image run (2 sectors, 5 pages): testbench output
+(the C-side log of this run was overwritten when the script was edited while running; the driver's exit code and the bench's backdoor check are below)
+  [bench] PROGRAM_B released: flash holds a bitstream, DONE 1
+  driver finished (code 0) at 32139640000 ns: 98 management SPI transactions
+  flash model: 10 WREN, 4 sector erase, 1 block erase, 5 page program, 1 rejected, 0 bytes programmed over 0 bits
+BENCH PASS: flash array identical to the expected image (0x30000 bytes)
+sim/esp32_cosim/tb_v4_flash_cosim.v:188: $finish called at 32139640000 (1ps)
+
+### 3. FLASH_XFER clock sweep (JEDEC, WREN framing, erase, multi-byte reads)
+-- 1000000 Hz
+  FAIL JEDEC ID 0x6f4096
+  ok   WREN + 2 trailing bytes (fpga_neural_flash_xfer) not taken by the model: SR1 0x00
+  FAIL erase 0x10000..0x21FFF (D8h + 2 x 20h): erased edges read 0xFF, 0x22000 preserved (ESP_OK)
+-- 1250000 Hz
+  ok   JEDEC ID 0xef4016
+  ok   WREN + 2 trailing bytes (fpga_neural_flash_xfer) not taken by the model: SR1 0x00
+  ok   erase 0x10000..0x21FFF (D8h + 2 x 20h): erased edges read 0xFF, 0x22000 preserved (ESP_OK)
+-- 1500000 Hz
+  ok   JEDEC ID 0xef4016
+  ok   WREN + 2 trailing bytes (fpga_neural_flash_xfer) not taken by the model: SR1 0x00
+  ok   erase 0x10000..0x21FFF (D8h + 2 x 20h): erased edges read 0xFF, 0x22000 preserved (ESP_OK)
+-- 1600000 Hz
+  ok   JEDEC ID 0xef4016
+  ok   WREN + 2 trailing bytes (fpga_neural_flash_xfer) not taken by the model: SR1 0x00
+  ok   erase 0x10000..0x21FFF (D8h + 2 x 20h): erased edges read 0xFF, 0x22000 preserved (ESP_OK)
+-- 2000000 Hz
+  ok   JEDEC ID 0xef4016
+  ok   WREN + 2 trailing bytes (fpga_neural_flash_xfer) not taken by the model: SR1 0x00
+  ok   erase 0x10000..0x21FFF (D8h + 2 x 20h): erased edges read 0xFF, 0x22000 preserved (ESP_OK)
+-- 2200000 Hz
+  ok   JEDEC ID 0xef4016
+  ok   WREN + 2 trailing bytes (fpga_neural_flash_xfer) not taken by the model: SR1 0x00
+  ok   erase 0x10000..0x21FFF (D8h + 2 x 20h): erased edges read 0xFF, 0x22000 preserved (ESP_OK)
+-- 2500000 Hz
+  ok   JEDEC ID 0xef4016
+  ok   WREN + 2 trailing bytes (fpga_neural_flash_xfer) not taken by the model: SR1 0x00
+  FAIL erase 0x10000..0x21FFF (D8h + 2 x 20h): erased edges read 0xFF, 0x22000 preserved (ESP_OK)

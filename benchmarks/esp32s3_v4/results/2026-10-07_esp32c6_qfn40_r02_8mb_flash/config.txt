@@ -1,0 +1,2 @@
+config: esp32c6, sdkconfig.defaults;sdkconfig.esp32c6_qfn40_r02_8mb
+board: benchmarks/boards/esp32c6_qfn40_r02_8mb (ESP32-C6 QFN40 rev v0.2, 160 MHz, 8 MB flash, no PSRAM, MAC e8:f6:0a:fa:eb:a0), port /dev/cu.usbmodem1101 (native USB-Serial/JTAG)

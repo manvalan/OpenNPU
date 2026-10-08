@@ -1,0 +1,11 @@
+net,run,us,bit_exact
+bench_small,0,161442,1
+bench_small,1,160791,1
+bench_small,2,160800,1
+bench_small,3,160792,1
+bench_small,4,160800,1
+bench_small,5,160796,1
+bench_small,6,160796,1
+bench_small,7,160796,1
+bench_small,8,160807,1
+bench_small,9,160796,1

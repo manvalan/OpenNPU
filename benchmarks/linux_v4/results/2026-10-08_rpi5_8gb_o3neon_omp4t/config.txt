@@ -1,0 +1,1 @@
+config: ssh rail@192.168.x.x, g++ -O3 -mcpu=cortex-a76 -fopenmp on the board, OMP_NUM_THREADS=4, 10 runs

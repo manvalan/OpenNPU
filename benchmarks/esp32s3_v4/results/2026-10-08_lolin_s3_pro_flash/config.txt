@@ -1,0 +1,2 @@
+config: esp32s3, sdkconfig.defaults;sdkconfig.lolin_s3_pro
+board: benchmarks/boards/lolin_s3_pro (ESP32-S3 QFN56 rev v0.1, 8 MB octal PSRAM, 16 MB quad flash, MAC f4:12:fa:cd:30:54), port /dev/cu.usbmodem1101 (native USB-Serial/JTAG)

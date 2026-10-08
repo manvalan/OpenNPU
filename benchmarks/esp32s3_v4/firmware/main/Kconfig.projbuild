@@ -1,0 +1,9 @@
+menu "v4_s3_bench"
+config V4_BLOB_IN_PSRAM
+    bool "Copy net.bin (weights, input, expected output) to PSRAM before running"
+    default n
+    help
+        Off: the network is read in place from flash (memory-mapped,
+        through the cache). On: it is copied once to PSRAM at boot and
+        read from there.
+endmenu

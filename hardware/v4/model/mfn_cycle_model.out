@@ -1,0 +1,48 @@
+layer                                               MACs  array cyc sched A cyc  note
+conv1 3x3 s2 3->64                             5,419,008     12,544      12,564  pw-only rule; im2col feeder PROJECTED
+dw1 56 s1 64 + b1.expand ->128                27,496,448     50,176      50,728  
+b1.dw s2 + project 128->64                     7,325,696     12,544      27,000  input-bound
+b2.expand 28 64->128                           6,422,528     12,544      12,568  
+b2.dw s1 + project 128->64                     7,325,696     12,544      13,112  
+b3.expand 28 64->128                           6,422,528     12,544      12,568  
+b3.dw s1 + project 128->64                     7,325,696     12,544      13,112  
+b4.expand 28 64->128                           6,422,528     12,544      12,568  
+b4.dw s1 + project 128->64                     7,325,696     12,544      13,112  
+b5.expand 28 64->128                           6,422,528     12,544      12,568  
+b5.dw s1 + project 128->64                     7,325,696     12,544      13,112  
+b6.expand 28 64->256                          12,845,056     25,088      25,112  
+b6.dw s2 + project 256->128                    6,874,112     12,544      14,488  input-bound
+b7.expand 14 128->256                          6,422,528     12,544      12,576  
+b7.dw s1 + project 256->128                    6,874,112     12,544      13,144  
+b8.expand 14 128->256                          6,422,528     12,544      12,576  
+b8.dw s1 + project 256->128                    6,874,112     12,544      13,144  
+b9.expand 14 128->256                          6,422,528     12,544      12,576  
+b9.dw s1 + project 256->128                    6,874,112     12,544      13,144  
+b10.expand 14 128->256                         6,422,528     12,544      12,576  
+b10.dw s1 + project 256->128                   6,874,112     12,544      13,144  
+b11.expand 14 128->256                         6,422,528     12,544      12,576  
+b11.dw s1 + project 256->128                   6,874,112     12,544      13,144  
+b12.expand 14 128->256                         6,422,528     12,544      12,576  
+b12.dw s1 + project 256->128                   6,874,112     12,544      13,144  
+b13.expand 14 128->512                        12,845,056     25,088      25,120  
+b13.dw s2 + project 512->128                   3,437,056      6,400       8,280  input-bound
+b14.expand 7 128->256                          1,605,632      3,200       3,232  
+b14.dw s1 + project 256->128                   1,718,528      3,200       3,576  
+b15.expand 7 128->256                          1,605,632      3,200       3,232  
+b15.dw s1 + project 256->128                   1,718,528      3,200       3,576  
+conv1x1 7 128->512                             3,211,264      6,400       6,432  
+GDConv 7x7 512                                    25,088      1,568       1,598  PROJECTED (16 lanes, 1 MAC each per cycle)
+linear 512->128                                   65,536        256         336  PROJECTED (1 position, half the array idle)
+TOTAL                                        220,965,376    416,288     442,314
+
+MACs total: 221.0 M (paper: ~221M): array 211.0 M, depthwise lanes 10.0 M
+Schedule A (layer by layer, today's engine): 442,314 cycles, array utilization 93.2%
+Schedule B (bottleneck fused, projection):   419,280 cycles, array utilization 98.3%
+
+    Fmax     A ms     A x     B ms     B x
+  125MHz    3.539    70.3    3.354    74.2
+  150MHz    2.949    84.4    2.795    89.0
+  155MHz    2.854    87.2    2.705    92.0
+  175MHz    2.528    98.4    2.396   103.8
+  200MHz    2.212   112.5    2.096   118.7
+  225MHz    1.966   126.6    1.863   133.5

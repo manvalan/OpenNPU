@@ -1,0 +1,2 @@
+# ESP32-C6: single RISC-V core at 160 MHz, no PSRAM (internal SRAM only)
+CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ_160=y

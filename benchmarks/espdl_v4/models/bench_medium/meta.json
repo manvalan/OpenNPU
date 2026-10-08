@@ -1,0 +1,28 @@
+{
+ "net": "bench_medium",
+ "target": "esp32s3",
+ "input_hwc": [
+  96,
+  96,
+  3
+ ],
+ "e_in_v4": -6,
+ "e_out_v4": -6,
+ "output_nchw": [
+  1,
+  2,
+  1,
+  1
+ ],
+ "float_output_hwc": [
+  -0.4206860363483429,
+  -0.40858525037765503
+ ],
+ "v4_output_int8": [
+  -81,
+  4
+ ],
+ "calib_images": 32,
+ "torch": "2.14.1",
+ "pack_bytes_differing_from_netbin": 0
+}

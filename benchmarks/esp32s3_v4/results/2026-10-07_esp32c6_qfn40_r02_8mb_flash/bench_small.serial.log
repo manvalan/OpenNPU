@@ -1,0 +1,54 @@
+[0;32mI (110) esp_image: segment 1: paddr=00020c0c vaddr=408000efuse_init: CESP-ROM:esp32c6-20220919
+Build:Sep 19 2022
+rst:0x15 (USB_UART_HPSYS),boot:0xc (SPI_FAST_FLASH_BOOT)
+Saved PC:0x400294ae
+SPIWP:0xee
+mode:DIO, clock div:2
+load:0x40875720,len:0x18ec
+load:0x4086c110,len:0xe80
+load:0x4086e610,len:0x2f4c
+entry 0x4086c11a
+[0;32mI (23) boot: ESP-IDF v5.3.5-1074-g045dd779fd3 2nd stage bootloader[0m
+[0;32mI (23) boot: compile time Oct  7 2026 23:35:00[0m
+[0;32mI (24) boot: chip revision: v0.2[0m
+[0;32mI (27) boot: efuse block revision: v0.3[0m
+[0;32mI (32) boot.esp32c6: SPI Speed      : 80MHz[0m
+[0;32mI (37) boot.esp32c6: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32c6: SPI Flash Size : 8MB[0m
+[0;32mI (46) boot: Enabling RNG early entropy source...[0m
+[0;32mI (51) boot: Partition Table:[0m
+[0;32mI (55) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (62) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (70) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (77) boot:  2 factory          factory app      00 00 00010000 00600000[0m
+[0;32mI (85) boot: End of partition table[0m
+[0;32mI (89) esp_image: segment 0: paddr=00010020 vaddr=42020020 size=10be4h ( 68580) map[0m
+[0;32mI (110) esp_image: segment 1: paddr=00020c0c vaddr=40800000 size=0abd8h ( 43992) load[0m
+[0;32mI (121) esp_image: segment 2: paddr=0002b7ec vaddr=4080abe0 size=017c4h (  6084) load[0m
+[0;32mI (123) esp_image: segment 3: paddr=0002cfb8 vaddr=00000000 size=03060h ( 12384) [0m
+[0;32mI (129) esp_image: segment 4: paddr=00030020 vaddr=42000020 size=138f0h ( 80112) map[0m
+[0;32mI (152) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (153) boot: Disabling RNG early entropy source...[0m
+[0;32mI (164) cpu_start: Unicore app[0m
+[capture: port dropped, reopened]
+[0;32mI (478) v4_s3_bench: run 0: 161.442 ms, output identical to the FPGA[0m
+CSV,0,161442,1
+[0;32mI (640) v4_s3_bench: run 1: 160.791 ms, output identical to the FPGA[0m
+CSV,1,160791,1
+[0;32mI (801) v4_s3_bench: run 2: 160.800 ms, output identical to the FPGA[0m
+CSV,2,160800,1
+[0;32mI (962) v4_s3_bench: run 3: 160.792 ms, output identical to the FPGA[0m
+CSV,3,160792,1
+[0;32mI (1123) v4_s3_bench: run 4: 160.800 ms, output identical to the FPGA[0m
+CSV,4,160800,1
+[0;32mI (1285) v4_s3_bench: run 5: 160.796 ms, output identical to the FPGA[0m
+CSV,5,160796,1
+[0;32mI (1446) v4_s3_bench: run 6: 160.796 ms, output identical to the FPGA[0m
+CSV,6,160796,1
+[0;32mI (1607) v4_s3_bench: run 7: 160.796 ms, output identical to the FPGA[0m
+CSV,7,160796,1
+[0;32mI (1769) v4_s3_bench: run 8: 160.807 ms, output identical to the FPGA[0m
+CSV,8,160807,1
+[0;32mI (1930) v4_s3_bench: run 9: 160.796 ms, output identical to the FPGA[0m
+CSV,9,160796,1
+[0;32mI (1930) v4_s3_bench: RESULT: best 160.791 ms, mean 160.862 ms over 10 runs, 10/10 bit-exact, peak activations 28672 bytes[0m

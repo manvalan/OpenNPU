@@ -1,0 +1,7 @@
+# Name,   Type, SubType, Offset,   Size
+nvs,      data, nvs,     0x9000,   0x6000
+phy_init, data, phy,     0xf000,   0x1000
+factory,  app,  factory, 0x10000,  0x300000
+# FPGA bitstream (.bit from Vivado), written with
+#   parttool.py write_partition --partition-name fpga --input v4_board_top_199.bit
+fpga,     data, 0x40,    0x310000, 0x400000

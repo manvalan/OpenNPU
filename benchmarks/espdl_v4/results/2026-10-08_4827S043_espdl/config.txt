@@ -1,0 +1,3 @@
+config: ESP-DL 3.3.13, sdkconfig.defaults (240 MHz, octal PSRAM 80 MHz, QIO flash 80 MHz, 64 KB D-cache)
+board: benchmarks/boards/4827S043 (ESP32-S3, MAC f4:12:fa:e1:d6:38), port /dev/cu.usbserial-110 (CH340)
+note: mfn and espressif_mfn crashed during the 2-core runs (Guru Meditation: IllegalInstruction / cache disabled but cached memory accessed) and rebooted, 4 and 10 times, before a boot completed; stats keep the last boot only. The mfn output after the 2-core runs differs from ESP-PPQ (70/128 values equal), so the 2-core MobileFaceNet runs on this board are not reliable. 1-core runs and all other models: no crash, output equal to ESP-PPQ.

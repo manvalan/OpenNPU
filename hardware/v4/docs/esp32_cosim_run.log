@@ -1,0 +1,28 @@
+# sim/esp32_cosim/run_cosim.sh, 2026-10-03
+## test model (gen_mfn default)
+I (fpga_v4_bringup) 1 reset: sys_rst pulsed low
+I (fpga_v4_bringup) 2 DDR3 calibrated
+I (fpga_v4_bringup) 3 DEVICE_ID 0x4e505602
+I (fpga_v4_bringup) 4 DDR3 over management SPI: 32 bytes written and read back
+I (fpga_v4_bringup) 5 DDR3 over Quad-SPI: written, read back, cross-checked with the management SPI
+I (fpga_v4_bringup) 6 model loaded: 41728 bytes, header magic OK
+I (fpga_v4_bringup) 7 inference done: 460784 core cycles, 6996 waiting for parameters
+I (fpga_v4_bringup) 8 embedding identical to the expected one (128 values)
+bring-up: ESP_OK, failed step 0, DEVICE_ID 0x4e505602, core cycles 460784, param wait 6996, mismatches 0
+ALL TESTS PASSED (esp32 driver co-simulation)
+[v4_core] network done: 460783 cycles, of which 6996 waiting for parameter loads
+  driver finished (code 0) at 6207255000 ns: 28 management SPI transactions, 22 Quad-SPI transactions (79709 bytes)
+
+## real ESP-DL model (espdl_to_v4.py pack, bill1 face)
+I (fpga_v4_bringup) 1 reset: sys_rst pulsed low
+I (fpga_v4_bringup) 2 DDR3 calibrated
+I (fpga_v4_bringup) 3 DEVICE_ID 0x4e505602
+I (fpga_v4_bringup) 4 DDR3 over management SPI: 32 bytes written and read back
+I (fpga_v4_bringup) 5 DDR3 over Quad-SPI: written, read back, cross-checked with the management SPI
+I (fpga_v4_bringup) 6 model loaded: 41728 bytes, header magic OK
+I (fpga_v4_bringup) 7 inference done: 477957 core cycles, 23176 waiting for parameters
+I (fpga_v4_bringup) 8 embedding identical to the expected one (512 values)
+bring-up: ESP_OK, failed step 0, DEVICE_ID 0x4e505602, core cycles 477957, param wait 23176, mismatches 0
+ALL TESTS PASSED (esp32 driver co-simulation)
+[v4_core] network done: 477956 cycles, of which 23176 waiting for parameter loads
+  driver finished (code 0) at 6216855000 ns: 28 management SPI transactions, 22 Quad-SPI transactions (80093 bytes)

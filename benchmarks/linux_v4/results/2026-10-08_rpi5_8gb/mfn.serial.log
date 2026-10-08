@@ -1,0 +1,11 @@
+CSV,0,185488,1
+CSV,1,184198,1
+CSV,2,184034,1
+CSV,3,184239,1
+CSV,4,184057,1
+CSV,5,184095,1
+CSV,6,184072,1
+CSV,7,184078,1
+CSV,8,184033,1
+CSV,9,184167,1
+nets/mfn/net.bin: 34 layers, output 128 values, bit-exact vs FPGA (10/10 runs bit-exact), best 184.033 ms on this PC, peak activations 802816 bytes

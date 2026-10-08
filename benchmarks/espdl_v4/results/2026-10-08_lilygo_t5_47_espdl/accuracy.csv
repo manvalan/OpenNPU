@@ -1,0 +1,5 @@
+net,outputs,cos_vs_float,maxrel_vs_float,argmax_eq_float,cos_v4_vs_float,maxrel_v4_vs_float,argmax_v4_eq_float,cos_vs_v4
+bench_small,10,0.996822,0.13028,1,0.994855,0.1525,1,0.996908
+bench_medium,2,0.917367,0.48002,0,0.682112,2.00848,1,0.334679
+bench_heavy,100,0.061014,5.98948,0,0.041421,3.04616,0,0.555111
+mfn,128,0.564884,6.38125,0,0.636724,1.6881,0,0.399054

@@ -1,0 +1,82 @@
+  host port: images loaded, read-back OK
+[v4_core] layer 0 done: 12634 cycles (pw-only, in 56x56, ng=2 nco=4          )
+  pass 0: output tensor 12544 words bit-exact
+[v4_core] layer 1 done: 13080 cycles (  dw+pw, in 56x56, ng=4 nco=8          )
+  pass 1: output tensor 6272 words bit-exact
+[v4_core] layer 2 done: 7040 cycles (  dw+pw, in 56x14, ng=8 nco=4          )
+[v4_core] layer 3 done: 13976 cycles (  dw+pw, in 56x56, ng=4 nco=8          )
+  pass 3: output tensor 6720 words bit-exact
+[v4_core] layer 4 done: 7040 cycles (  dw+pw, in 56x15, ng=8 nco=4          )
+[v4_core] layer 5 done: 13976 cycles (  dw+pw, in 56x56, ng=4 nco=8          )
+  pass 5: output tensor 6720 words bit-exact
+[v4_core] layer 6 done: 7040 cycles (  dw+pw, in 56x15, ng=8 nco=4          )
+[v4_core] layer 7 done: 13976 cycles (  dw+pw, in 56x56, ng=4 nco=8          )
+  pass 7: output tensor 6720 words bit-exact
+[v4_core] layer 8 done: 7040 cycles (  dw+pw, in 56x15, ng=8 nco=4          )
+  pass 8: output tensor 3136 words bit-exact
+[v4_core] layer 9 done: 12591 cycles (pw-only, in 28x28, ng=4 nco=8          )
+  pass 9: output tensor 6272 words bit-exact
+[v4_core] layer 10 done: 13112 cycles (  dw+pw, in 28x28, ng=8 nco=4, residual)
+  pass 10: output tensor 3136 words bit-exact
+[v4_core] layer 11 done: 12591 cycles (pw-only, in 28x28, ng=4 nco=8          )
+  pass 11: output tensor 6272 words bit-exact
+[v4_core] layer 12 done: 13112 cycles (  dw+pw, in 28x28, ng=8 nco=4, residual)
+  pass 12: output tensor 3136 words bit-exact
+[v4_core] layer 13 done: 12591 cycles (pw-only, in 28x28, ng=4 nco=8          )
+  pass 13: output tensor 6272 words bit-exact
+[v4_core] layer 14 done: 13112 cycles (  dw+pw, in 28x28, ng=8 nco=4, residual)
+  pass 14: output tensor 3136 words bit-exact
+[v4_core] layer 15 done: 12591 cycles (pw-only, in 28x28, ng=4 nco=8          )
+  pass 15: output tensor 6272 words bit-exact
+[v4_core] layer 16 done: 13112 cycles (  dw+pw, in 28x28, ng=8 nco=4, residual)
+  pass 16: output tensor 3136 words bit-exact
+[v4_core] layer 17 done: 25135 cycles (pw-only, in 28x28, ng=4 nco=16          )
+  pass 17: output tensor 12544 words bit-exact
+[v4_core] layer 18 done: 18177 cycles (  dw+pw, in 28x28, ng=16 nco=8          )
+  pass 18: output tensor 1568 words bit-exact
+[v4_core] layer 19 done: 12599 cycles (pw-only, in 14x14, ng=8 nco=16          )
+  pass 19: output tensor 3136 words bit-exact
+[v4_core] layer 20 done: 13176 cycles (  dw+pw, in 14x14, ng=16 nco=8, residual)
+  pass 20: output tensor 1568 words bit-exact
+[v4_core] layer 21 done: 12599 cycles (pw-only, in 14x14, ng=8 nco=16          )
+  pass 21: output tensor 3136 words bit-exact
+[v4_core] layer 22 done: 13176 cycles (  dw+pw, in 14x14, ng=16 nco=8, residual)
+  pass 22: output tensor 1568 words bit-exact
+[v4_core] layer 23 done: 12599 cycles (pw-only, in 14x14, ng=8 nco=16          )
+  pass 23: output tensor 3136 words bit-exact
+[v4_core] layer 24 done: 13176 cycles (  dw+pw, in 14x14, ng=16 nco=8, residual)
+  pass 24: output tensor 1568 words bit-exact
+[v4_core] layer 25 done: 12599 cycles (pw-only, in 14x14, ng=8 nco=16          )
+  pass 25: output tensor 3136 words bit-exact
+[v4_core] layer 26 done: 13176 cycles (  dw+pw, in 14x14, ng=16 nco=8, residual)
+  pass 26: output tensor 1568 words bit-exact
+[v4_core] layer 27 done: 12599 cycles (pw-only, in 14x14, ng=8 nco=16          )
+  pass 27: output tensor 3136 words bit-exact
+[v4_core] layer 28 done: 13176 cycles (  dw+pw, in 14x14, ng=16 nco=8, residual)
+  pass 28: output tensor 1568 words bit-exact
+[v4_core] layer 29 done: 12599 cycles (pw-only, in 14x14, ng=8 nco=16          )
+  pass 29: output tensor 3136 words bit-exact
+[v4_core] layer 30 done: 13176 cycles (  dw+pw, in 14x14, ng=16 nco=8, residual)
+  pass 30: output tensor 1568 words bit-exact
+[v4_core] layer 31 done: 25143 cycles (pw-only, in 14x14, ng=8 nco=32          )
+  pass 31: output tensor 6272 words bit-exact
+[v4_core] layer 32 done: 9733 cycles (  dw+pw, in 14x14, ng=32 nco=8          )
+  pass 32: output tensor 392 words bit-exact
+[v4_core] layer 33 done: 3254 cycles (pw-only, in 7x7, ng=8 nco=16          )
+  pass 33: output tensor 784 words bit-exact
+[v4_core] layer 34 done: 3607 cycles (  dw+pw, in 7x7, ng=16 nco=8, residual)
+  pass 34: output tensor 392 words bit-exact
+[v4_core] layer 35 done: 3254 cycles (pw-only, in 7x7, ng=8 nco=16          )
+  pass 35: output tensor 784 words bit-exact
+[v4_core] layer 36 done: 3607 cycles (  dw+pw, in 7x7, ng=16 nco=8, residual)
+  pass 36: output tensor 392 words bit-exact
+[v4_core] layer 37 done: 6454 cycles (pw-only, in 7x7, ng=8 nco=32          )
+  pass 37: output tensor 1568 words bit-exact
+[v4_core] layer 38 done: 1633 cycles (GDConv , in 7x7, ng=32 nco=0          )
+  pass 38: output tensor 32 words bit-exact
+[v4_core] layer 39 done: 326 cycles (pw-only, in 1x1, ng=32 nco=8          )
+  pass 39: output tensor 8 words bit-exact
+[v4_core] network done: 464017 cycles, of which 10231 waiting for parameter loads
+=== MobileFaceNet on v4_core: 37 passes checked, 132704 words, 0 errors; TOTAL 464018 cycles (DDR model 5/8 word/cycle, latency 60; 67836 words streamed) ===
+ALL TESTS PASSED (tb_v4_core_mfn)
+sim/tb_v4_core_mfn.v:201: $finish called at 2345595000 (1ps)

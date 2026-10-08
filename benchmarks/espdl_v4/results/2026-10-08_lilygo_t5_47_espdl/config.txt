@@ -1,0 +1,2 @@
+config: ESP-DL 3.3.13, sdkconfig.defaults (240 MHz, octal PSRAM 80 MHz, QIO flash 80 MHz, 64 KB D-cache)
+board: benchmarks/boards/lilygo_t5_47 (ESP32-S3, MAC 34:85:18:7e:17:1c), port /dev/cu.usbmodem1201

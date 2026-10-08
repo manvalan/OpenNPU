@@ -1,0 +1,3 @@
+I v4_rp2350: chip RP2350 ARM, CPU 150 MHz, free heap 514480, PSRAM 0, net.bin read in place from flash
+I v4_rp2350: network: 34 layers, output 128 values, 1063896 bytes of net.bin
+E v4_rp2350: out of memory: 401408 bytes requested, heap free 33528

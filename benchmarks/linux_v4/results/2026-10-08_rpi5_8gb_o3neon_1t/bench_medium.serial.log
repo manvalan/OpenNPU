@@ -1,0 +1,11 @@
+CSV,0,7657,1
+CSV,1,7597,1
+CSV,2,7579,1
+CSV,3,7607,1
+CSV,4,7576,1
+CSV,5,7574,1
+CSV,6,7575,1
+CSV,7,7573,1
+CSV,8,7633,1
+CSV,9,7561,1
+nets/bench_medium/net.bin: 9 layers, output 2 values, bit-exact vs FPGA (10/10 runs bit-exact), best 7.561 ms on this PC, peak activations 368640 bytes

@@ -1,0 +1,3 @@
+config: ESP-DL 3.3.13, sdkconfig.defaults (240 MHz, octal PSRAM 80 MHz, QIO flash 80 MHz, 64 KB D-cache)
+board: benchmarks/boards/lilygo_t5_47_b (LilyGo T5 4.7" second unit, ESP32-S3 QFN56 rev v0.1, 8 MB octal PSRAM, 16 MB quad flash, MAC 34:85:18:9d:ec:c0), port /dev/cu.usbmodem1101
+note: the 2-core MobileFaceNet runs crashed (Guru Meditation, IllegalInstruction) in a loop: v4 mfn 7 crashes in 9 boots (the last boot logged 4 two-core runs before the capture moved on), Espressif's model 19 crashes in 20 boots, stopped by hand without a complete two-core run. 1-core runs and the other models: no crash.

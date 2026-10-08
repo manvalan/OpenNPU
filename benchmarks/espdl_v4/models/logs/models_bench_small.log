@@ -1,0 +1,48 @@
+/Users/michelebigi/Development/FPGA-Neural/test-mac/repo/benchmarks/espdl_v4/export_espdl.py:137: DeprecationWarning: You are using the legacy TorchScript-based ONNX export. Starting in PyTorch 2.9, the new torch.export-based ONNX exporter has become the default. Learn more about the new export logic: https://docs.pytorch.org/docs/stable/onnx_export.html. For exporting control flow: https://pytorch.org/tutorials/beginner/onnx/export_control_flow_model_to_onnx_tutorial.html
+  torch.onnx.export(f, x_real, onnx_path, input_names=["input"], output_names=["output"],
+bench_small: parameter pack vs net.bin: 0 of 29274 bytes differ
+bench_small: FloatNet vs QNet float (float64) max diff 2.89e-15, output (1, 10, 1, 1)
+
+    ___________ ____        ____  ____  ____
+   / ____/ ___// __ \      / __ \/ __ \/ __ \
+  / __/  \__ \/ /_/ /_____/ /_/ / /_/ / / / /
+ / /___ ___/ / ____/_____/ ____/ ____/ /_/ /
+/_____//____/_/         /_/   /_/    \___\_\
+
+
+[10:15:36] ConvTranspose Decomposition Pass Running ... Finished.
+[10:15:36] PPQ Quantization Fusion Pass Running ...       Finished.
+[10:15:36] PPQ Quantize Simplify Pass Running ...         Finished.
+[10:15:36] PPQ Parameter Quantization Pass Running ...    Finished.
+[10:15:36] PPQ Runtime Calibration Pass Running ...       Calibration Progress(Phase 1):   0%|          | 0/32 [00:00<?, ?it/s]Calibration Progress(Phase 1): 100%|██████████| 32/32 [00:00<00:00, 971.32it/s]
+Calibration Progress(Phase 2):   0%|          | 0/32 [00:00<?, ?it/s]Calibration Progress(Phase 2): 100%|██████████| 32/32 [00:00<00:00, 910.72it/s]
+Finished.
+[10:15:36] PPQ Quantization Alignment Pass Running ...    Finished.
+[10:15:36] PPQ Passive Parameter Quantization Running ... Finished.
+--------- Network Snapshot ---------
+Num of Op:                    [9]
+Num of Quantized Op:          [9]
+Num of Variable:              [20]
+Num of Quantized Var:         [20]
+------- Quantization Snapshot ------
+Num of Quant Config:          [28]
+ACTIVATED:                    [11]
+OVERLAPPED:                   [12]
+PASSIVE:                      [5]
+Network Quantization Finished.
+Analysing Graphwise Quantization Error(Phrase 1)::   0%|          | 0/8 [00:00<?, ?it/s]Analysing Graphwise Quantization Error(Phrase 1):: 100%|██████████| 8/8 [00:00<00:00, 302.14it/s]
+Analysing Graphwise Quantization Error(Phrase 2)::   0%|          | 0/8 [00:00<?, ?it/s]Analysing Graphwise Quantization Error(Phrase 2):: 100%|██████████| 8/8 [00:00<00:00, 266.84it/s]
+Layer          | NOISE:SIGNAL POWER RATIO 
+/convs.4/Conv: | ████████████████████ | 0.766%
+/convs.3/Conv: | ████████████         | 0.480%
+/convs.2/Conv: | █████                | 0.192%
+/convs.1/Conv: | ██                   | 0.100%
+/convs.0/Conv: |                      | 0.014%
+Analysing Layerwise quantization error::   0%|          | 0/5 [00:00<?, ?it/s]Analysing Layerwise quantization error:: 100%|██████████| 5/5 [00:00<00:00, 62.54it/s]
+Layer          | NOISE:SIGNAL POWER RATIO 
+/convs.3/Conv: | ████████████████████ | 0.209%
+/convs.1/Conv: | █████████            | 0.153%
+/convs.0/Conv: | ████                 | 0.127%
+/convs.2/Conv: | █                    | 0.110%
+/convs.4/Conv: |                      | 0.105%
+wrote models/bench_small/model.onnx models/bench_small/model.espdl meta.json

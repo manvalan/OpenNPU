@@ -1,0 +1,24 @@
+OpenNPU is licensed by kind of file. Full texts are in LICENSES/.
+
+  Hardware design: Verilog RTL, constraints (.xdc), PCB and schematics
+    CERN-OHL-S-2.0  (CERN Open Hardware Licence v2, Strongly Reciprocal)
+    LICENSES/CERN-OHL-S-2.0.txt
+
+  Software: tools, models, scripts, firmware (.py .c .h .cpp .sh .tcl)
+    MIT
+    LICENSES/MIT.txt
+
+  Documentation and images (.md .pdf .png .svg)
+    CC-BY-4.0  (Creative Commons Attribution 4.0 International)
+    LICENSES/CC-BY-4.0.txt
+
+Every source file carries an SPDX header naming its license; when a
+header and this summary disagree, the header wins.
+
+Copyright (c) 2026 Michele (manvalan)
+
+Commercial licensing: to use the hardware design in a product without
+releasing your own design under CERN-OHL-S-2.0, a separate commercial
+license is available. See COMMERCIAL_LICENSE.md.
+
+Third-party material is listed in NOTICE and keeps its own license.

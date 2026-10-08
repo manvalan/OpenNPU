@@ -1,0 +1,2 @@
+config: sdkconfig.defaults;sdkconfig.4827S043 (net.bin read in place from flash)
+board: benchmarks/boards/4827S043 (ESP32-S3 QFN56 rev v0.1, 8 MB octal PSRAM, 16 MB quad flash, MAC f4:12:fa:e1:d6:38)

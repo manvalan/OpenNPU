@@ -1,0 +1,2 @@
+config: rp2040:rp2040:weact_rp2350b:arch=arm,freq=150,opt=Optimize2, arduino-pico 6.2.0
+board: benchmarks/boards/weact_rp2350b (WeAct Studio RP2350B Core Board V1.0, RP2350 A2 QFN80, 16 MB flash, no PSRAM), port /dev/cu.usbmodem1101

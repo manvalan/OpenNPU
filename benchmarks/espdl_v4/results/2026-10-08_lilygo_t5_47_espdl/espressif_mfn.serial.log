@@ -1,0 +1,104 @@
+[0;32mI (102) esp_image: segment 0: paddr=00010020 vaddr=3c0e00ESP-ROM:esp32s3-20210327
+Build:Mar 27 2021
+rst:0x15 (USB_UART_CHIP_RESET),boot:0xc (SPI_FAST_FLASH_BOOT)
+Saved PC:0x403cd87b
+SPIWP:0xee
+mode:DIO, clock div:1
+load:0x3fce2820,len:0x19b4
+load:0x403c8700,len:0x4
+load:0x403c8704,len:0xe8c
+load:0x403cb700,len:0x3144
+entry 0x403c8940
+[0;32mI (26) boot: ESP-IDF v5.3.5-1074-g045dd779fd3 2nd stage bootloader[0m
+[0;32mI (27) boot: compile time Oct  8 2026 10:18:30[0m
+[0;32mI (27) boot: Multicore bootloader[0m
+[0;32mI (31) boot: chip revision: v0.1[0m
+[0;32mI (35) boot: efuse block revision: v1.2[0m
+[0;32mI (40) qio_mode: Enabling default flash chip QIO[0m
+[0;32mI (45) boot.esp32s3: Boot SPI Speed : 80MHz[0m
+[0;32mI (50) boot.esp32s3: SPI Mode       : QIO[0m
+[0;32mI (54) boot.esp32s3: SPI Flash Size : 16MB[0m
+[0;32mI (59) boot: Enabling RNG early entropy source...[0m
+[0;32mI (65) boot: Partition Table:[0m
+[0;32mI (68) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (75) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (83) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (90) boot:  2 factory          factory app      00 00 00010000 00f00000[0m
+[0;32mI (98) boot: End of partition table[0m
+[0;32mI (102) esp_image: segment 0: paddr=00010020 vaddr=3c0e0020 size=2554d8h (2446552) map[0m
+[0;32mI (489) esp_image: segment 1: paddr=00265500 vaddr=3fc99a00 size=035c8h ( 13768) load[0m
+[0;32mI (492) esp_image: segment 2: paddr=00268ad0 vaddr=40378000 size=07548h ( 30024) load[0m
+[0;32mI (501) esp_image: segment 3: paddr=00270020 vaddr=42000020 size=dd010h (905232) map[0m
+[0;32mI (643) esp_image: segment 4: paddr=0034d038 vaddr=4037f548 size=0a490h ( 42128) load[0m
+[0;32mI (659) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (659) boot: Disabling RNG early entropy source...[0m
+[0;32mI (671) octal_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (671) octal_psram: dev id       : 0x02 (generation 3)[0m
+[0;32mI (671) octal_psram: density      : 0x03 (64 Mbit)[0m
+[0;32mI (676) octal_psram: good-die     : 0x01 (Pass)[0m
+[0;32mI (681) octal_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (686) octal_psram: VCC          : 0x01 (3V)[0m
+[0;32mI (692) octal_psram: SRF          : 0x01 (Fast Refresh)[0m
+[0;32mI (697) octal_psram: BurstType    : 0x01 (Hybrid Wrap)[0m
+[0;32mI (703) octal_psram: BurstLen     : 0x01 (32 Byte)[0m
+[0;32mI (709) octal_psram: Readlatency  : 0x02 (10 cycles@Fixed)[0m
+[0;32mI (715) octal_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (721) MSPI Timing: PSRAM timing tuning index: 5[0m
+[0;32mI (725) esp_psram: Found 8MB PSRAM device[0m
+[0;32mI (730) esp_psram: Speed: 80MHz[0m
+[0;32mI (734) cpu_start: Multicore app[0m
+[0;32mI (1023) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (1032) cpu_start: Pro cpu start user code[0m
+[0;32mI (1032) cpu_start: cpu freq: 240000000 Hz[0m
+[0;32mI (1032) app_init: Application information:[0m
+[0;32mI (1035) app_init: Project name:     v4_espdl_bench[0m
+[0;32mI (1041) app_init: App version:      bench-cpu-2026-10-08-2-gb569fda[0m
+[0;32mI (1048) app_init: Compile time:     Oct  8 2026 10:28:36[0m
+[0;32mI (1054) app_init: ELF file SHA256:  f6ca4a6c4...[0m
+[0;32mI (1059) app_init: ESP-IDF:          v5.3.5-1074-g045dd779fd3[0m
+[0;32mI (1066) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (1070) efuse_init: Max chip rev:     v0.99 [0m
+[0;32mI (1075) efuse_init: Chip rev:         v0.1[0m
+[0;32mI (1080) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (1088) heap_init: At 3FC9EED8 len 0004A838 (298 KiB): RAM[0m
+[0;32mI (1094) heap_init: At 3FCE9710 len 00005724 (21 KiB): RAM[0m
+[0;32mI (1100) heap_init: At 600FE000 len 00001FE8 (7 KiB): RTCRAM[0m
+[0;32mI (1106) esp_psram: Adding pool of 8192K of PSRAM memory to heap allocator[0m
+[0;32mI (1114) spi_flash: detected chip: gd[0m
+[0;32mI (1118) spi_flash: flash io: qio[0m
+[0;32mI (1122) sleep: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (1129) sleep: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (1137) main_task: Started on CPU0[0m
+[0;32mI (1141) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (1150) main_task: Calling app_main()[0m
+[0;32mI (1154) v4_espdl: chip esp32s3, CPU 240 MHz, free heap 8691379 (internal 305659, PSRAM 8385720)[0m
+[0;32mI (1316) v4_espdl: model loaded in 152.3 ms, free heap 6554615 (internal 266303, PSRAM 6288312)[0m
+[0;32mI (1317) dl::Model: Test max_error = 0.0005 (default)[0m
+E (1325) FbsModel: (get_test_input_tensor)The initial parameter is error.
+[0;31mE (1327) dl::Model: Model input input doesn't have a corresponding test input. Please enable export_test_values option in esp-ppq when export espdl model.[0m
+[0;32mI (1317) v4_espdl: model->test() (ESP-DL vs ESP-PPQ test values): FAIL[0m
+[0;32mI (1379) v4_espdl: input 112x112x3, exponent -6 (v4: -6)[0m
+CSV,0,254639,0
+CSV,1,248980,0
+CSV,2,248990,0
+CSV,3,248976,0
+CSV,4,248988,0
+CSV,5,248976,0
+CSV,6,248988,0
+CSV,7,248976,0
+CSV,8,248988,0
+CSV,9,248976,0
+[0;32mI (3880) v4_espdl: RESULT CSV: best 248.976 ms, mean 249.548 ms over 10 runs[0m
+CSV2,0,221663,0
+CSV2,1,221508,0
+CSV2,2,221476,0
+CSV2,3,221424,0
+CSV2,4,221496,0
+CSV2,5,221502,0
+CSV2,6,221435,0
+CSV2,7,221496,0
+CSV2,8,221502,0
+CSV2,9,221435,0
+[0;32mI (6101) v4_espdl: RESULT CSV2: best 221.424 ms, mean 221.494 ms over 10 runs[0m
+OUT,int8,-5,-4,-17,-1,-3,15,-5,-9,-14,-4,2,26,-3,-12,-17,-11,-6,1,7,9,-8,8,-9,-15,14,20,1,13,-22,17,-4,15,4,-13,-1,20,-1,2,-8,-7,-4,18,3,12,6,7,10,25,4,-6,-13,-22,-17,13,10,-2,7,-1,-1,8,-4,-7,11,-5,11,-20,-21,-32,-2,3,14,-8,11,-10,4,20,-18,14,1,1,5,-12,3,1,-9,4,6,20,-4,-2,-4,7,14,0,-26,13,-1,-7,-9,-8,-13,-10,-11,-10,4,7,-3,-11,6,14,-17,0,13,-4,-12,-22,-29,-18,1,17,16,-4,8,4,-12,11,-1,3,-1,27,-1,1,-9,-15,-23,-7,9,-21,2,-3,19,3,6,6,5,8,17,-9,5,10,-16,-27,-15,22,7,8,-21,12,4,-22,-15,3,18,7,13,5,-20,-7,8,9,-7,-11,-9,0,1,5,-5,-1,10,3,10,-15,-2,13,1,-13,-8,-19,-15,-9,-16,-5,0,2,5,-3,10,-20,1,8,-1,26,-3,-6,16,12,16,-11,16,13,-9,4,-4,-3,-1,-13,21,4,-19,-8,11,-4,2,-3,-8,-5,-12,-4,3,-18,-3,-2,-8,-4,15,3,7,-5,15,-10,21,-1,2,-8,12,0,6,5,2,6,15,0,11,-22,13,-9,6,-7,-6,-5,4,-8,16,12,-16,-3,-2,16,-18,10,-11,3,-13,0,2,0,-17,11,6,-2,1,-16,5,-2,-3,5,-17,7,1,6,-19,-6,-1,-9,-20,8,21,-5,-2,-1,6,10,-14,6,3,-8,1,1,1,-6,1,-6,-17,5,-8,4,-7,-4,-5,4,7,5,-23,-8,16,-4,1,-9,-7,24,-5,4,-7,6,-25,-10,4,2,3,-8,13,6,16,-7,10,-8,-7,0,-2,6,-22,-3,-9,-1,9,-5,6,8,8,-7,18,-6,7,9,-1,3,-7,-10,0,28,-23,-2,-11,13,3,4,-6,-18,-10,-14,-13,-2,-7,-6,-11,7,6,-1,21,-11,-16,-1,4,8,-4,9,-4,13,12,-9,-1,-14,-12,-16,-3,2,-13,10,11,23,1,-4,-3,-5,13,-10,-16,-12,-1,-25,-23,-1,-26,-14,-3,-10,2,11,23,-4,9,16,-8,-4,0,-7,-3,-11,-22,1,-8,16,-6,-7,-3,-32,2,4,-3,-16,-4,-10,1,13,-6,-7,2,20,25,8,0,-18,2,12,7,18,-19,-11,-10,-1,12,4,13,14,3,-8,9,7,6,3,9,-4,0,11,-19,1,24,-28,8,-2,5,-8,10,-29,-4,-18,-8,-8,9,-15,-9,0,-22,-4,7,25,7,1,1,3,-4,-6,8
+[0;32mI (6229) v4_espdl: RESULT: done[0m

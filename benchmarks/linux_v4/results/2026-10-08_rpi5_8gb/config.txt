@@ -1,0 +1,2 @@
+config: ssh rail@192.168.x.x, g++ -O2 on the board, 10 runs
+board: benchmarks/boards/rpi5_8gb (Raspberry Pi 5 Model B Rev 1.0, 8 GB, BCM2712 4x Cortex-A76 2.4 GHz)

@@ -1,0 +1,23 @@
+I v4_rp2350: chip RP2350 ARM, CPU 150 MHz, free heap 514480, PSRAM 0, net.bin read in place from flash
+I v4_rp2350: network: 9 layers, output 2 values, 248128 bytes of net.bin
+I v4_rp2350: run 0: 3111.776 ms, output identical to the FPGA
+CSV,0,3111776,1
+I v4_rp2350: run 1: 3112.463 ms, output identical to the FPGA
+CSV,1,3112463,1
+I v4_rp2350: run 2: 3113.086 ms, output identical to the FPGA
+CSV,2,3113086,1
+I v4_rp2350: run 3: 3112.613 ms, output identical to the FPGA
+CSV,3,3112613,1
+I v4_rp2350: run 4: 3112.982 ms, output identical to the FPGA
+CSV,4,3112982,1
+I v4_rp2350: run 5: 3112.757 ms, output identical to the FPGA
+CSV,5,3112757,1
+I v4_rp2350: run 6: 3112.939 ms, output identical to the FPGA
+CSV,6,3112939,1
+I v4_rp2350: run 7: 3112.610 ms, output identical to the FPGA
+CSV,7,3112610,1
+I v4_rp2350: run 8: 3112.569 ms, output identical to the FPGA
+CSV,8,3112569,1
+I v4_rp2350: run 9: 3112.694 ms, output identical to the FPGA
+CSV,9,3112694,1
+I v4_rp2350: RESULT: best 3111.776 ms, mean 3112.649 ms over 10 runs, 10/10 bit-exact, peak activations 368640 bytes

@@ -1,0 +1,2 @@
+config: sdkconfig.defaults;sdkconfig.lilygo_t5_47;sdkconfig.psram
+board: benchmarks/boards/lilygo_t5_47 (ESP32-S3 QFN56 rev v0.1, 8 MB octal PSRAM, 16 MB quad flash, MAC 34:85:18:7e:17:1c), port /dev/cu.usbmodem1101 (native USB-Serial/JTAG)
