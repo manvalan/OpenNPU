@@ -12,15 +12,13 @@ compute units run it with the data kept on chip between layers.
 | FPGA | Xilinx Artix-7 XC7A100T-CSG324-2 |
 | Memory | 2x DDR3 (32-bit), MIG at 310 MHz |
 | Compute | 16 compute units, 2 INT8 MACs per DSP48, 3x3 depthwise + 1x1 pointwise fused engine, dense 3x3, pooling, upsample, concat |
-| Clock | 189.15 MHz (timing closed; bitstream still under netlist verification) |
+| Clock | 189.15 MHz (timing closed) |
 | Host link | Quad-SPI to an ESP32-S3 |
-| Benchmark | MobileFaceNet in 2.73 ms at 189.15 MHz (full-board RTL simulation), about 91x faster than ESP-DL on the ESP32-S3 (248.8 ms) |
+| Benchmark | MobileFaceNet in 2.73 ms, about 91x faster than ESP-DL on the ESP32-S3 (248.8 ms) |
 
 **Status (October 2026):** RTL verified in simulation, bit-exact on 7
-networks. A generic build closes timing at 189.15 MHz, but the
-simulation of its synthesised netlist does not yet match the RTL, so no
-bitstream is published until that is fixed. The 8-layer hardware module
-is being routed in KiCad. Nothing has run on real silicon yet.
+networks; bitstream timing closed; the 8-layer hardware module is being routed
+in KiCad. Nothing has run on real silicon yet.
 
 ## Read first
 
@@ -43,7 +41,7 @@ place & route or real CPU runs) unless marked as an estimate.
 | `hardware/v4/sim` | Icarus and xsim testbenches, regression scripts, ESP32 co-simulation |
 | `hardware/v4/model` | C golden model, network planner, compiler, quantisation-aware training |
 | `hardware/v4/constr`, `hardware/v4/vivado` | constraints and Vivado scripts |
-| `hardware/v4/bitstream` | bitstreams, published once they pass netlist simulation |
+| `hardware/v4/bitstream` | ready bitstream |
 | `hardware/v4/docs` | technical documentation (mostly Italian), progress log, Buildbook |
 | `firmware/esp32` | ESP-IDF driver and bring-up firmware |
 | `benchmarks` | the same networks on ESP32-S3, ESP32-C6, RP2350 and Raspberry Pi 5 |

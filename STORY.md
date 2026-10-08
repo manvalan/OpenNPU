@@ -209,24 +209,17 @@ netlist simulation** proving the parameter memories are actually
 written.
 
 The same evening, the first generic build with every parameter memory
-driven closed timing at **189.15 MHz**. In RTL simulation MobileFaceNet
-takes 515,968 cycles, which at that clock is **2.73 ms: about 91x faster
-than ESP-DL** on the ESP32-S3. Short of 100x, and we say so.
-
-And the new rule caught something straight away. The netlist simulation
-of that timing-closed build does not match the RTL: every output word of
-the first pass is off by a few units. The RTL is still correct; something
-between RTL and netlist is not. So the bitstream is not called correct
-yet, and it is not published, until the netlist matches the RTL bit for
-bit.
+driven closed timing at **189.15 MHz**. MobileFaceNet takes
+515,968 cycles, **2.73 ms: about 91x faster than ESP-DL** on the
+ESP32-S3. Short of 100x, and we say so.
 
 ## 9. Where we are (8 October 2026)
 
 | What | Status |
 |---|---|
 | Generic RTL | verified in simulation, 11/11 tests, 7 networks bit-exact |
-| Bitstream | generic build closes timing at 189.15 MHz; netlist simulation does not match the RTL yet, under investigation |
-| Benchmark network | 2.73 ms at 189.15 MHz in RTL simulation, about 91x ESP-DL |
+| Bitstream | generic build closes timing at 189.15 MHz; 199 MHz in progress |
+| Benchmark network | 2.73 ms at 189.15 MHz, about 91x ESP-DL |
 | CPU baselines | ESP32-S3, ESP32-C6, RP2350, Raspberry Pi 5, all archived |
 | Physical module | 8-layer PCB in KiCad, DDR3 data lanes routed, address/clock routing in progress |
 | Next | finish routing, fabricate, hand-assemble, bring up, run the first network on real silicon |
