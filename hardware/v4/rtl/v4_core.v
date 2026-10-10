@@ -199,26 +199,26 @@ module v4_core #(
         // dw weights: inside dw_linebuf_grouped (DWW_INT), written through
         // we_dww / mw_addr / mw_data (registered here)
         for (gk = 0; gk < 5; gk = gk + 1) begin : GEN_DWQ
-            (* ram_style = "distributed" *) reg [127:0] mem [0:DWDEPTH-1];
-            reg        wl_en;
-            reg [$clog2(DWDEPTH)-1:0] wl_addr;
-            reg [127:0] wl_data;
+            reg                        wl_en;
+            reg [$clog2(DWDEPTH)-1:0]  wl_addr;
+            reg [127:0]                wl_data;
             always @(posedge clk) begin
                 wl_en <= we_dwq[gk]; wl_addr <= mw_addr[$clog2(DWDEPTH)-1:0]; wl_data <= mw_data;
-                if (wl_en) mem[wl_addr] <= wl_data;
             end
-            assign dwq[gk*128 +: 128] = mem[dwq_a];
+            param_lutram #(.DEPTH(DWDEPTH), .AW($clog2(DWDEPTH))) u_m (
+                .clk(clk), .we(wl_en), .waddr(wl_addr), .wdata(wl_data),
+                .raddr(dwq_a), .rdata(dwq[gk*128 +: 128]));
         end
         for (gk = 0; gk < 5; gk = gk + 1) begin : GEN_PWQ
-            (* ram_style = "distributed" *) reg [127:0] mem [0:PWDEPTH-1];
-            reg        wl_en;
-            reg [$clog2(PWDEPTH)-1:0] wl_addr;
-            reg [127:0] wl_data;
+            reg                        wl_en;
+            reg [$clog2(PWDEPTH)-1:0]  wl_addr;
+            reg [127:0]                wl_data;
             always @(posedge clk) begin
                 wl_en <= we_pwq[gk]; wl_addr <= mw_addr[$clog2(PWDEPTH)-1:0]; wl_data <= mw_data;
-                if (wl_en) mem[wl_addr] <= wl_data;
             end
-            assign pwq[gk*128 +: 128] = mem[pwq_a];
+            param_lutram #(.DEPTH(PWDEPTH), .AW($clog2(PWDEPTH))) u_m (
+                .clk(clk), .we(wl_en), .waddr(wl_addr), .wdata(wl_data),
+                .raddr(pwq_a), .rdata(pwq[gk*128 +: 128]));
         end
     endgenerate
     // ---------------- descriptor fetch + parameter loader ----------------

@@ -213,10 +213,9 @@ module dw_linebuf_grouped #(
         if (DWW_INT != 0) begin : G_DWW
             wire [11:0] dww_a = dww_base + {6'd0, g1};
             for (gw = 0; gw < 9; gw = gw + 1) begin : GEN_DWW
-                (* ram_style = "distributed" *) reg [127:0] mem [0:DWDEPTH-1];
-                always @(posedge clk)
-                    if (dww_we[gw]) mem[dww_waddr[$clog2(DWDEPTH)-1:0]] <= dww_wdata;
-                assign wd_src[gw*128 +: 128] = mem[dww_a];
+                param_lutram #(.DEPTH(DWDEPTH), .AW($clog2(DWDEPTH))) u_m (
+                    .clk(clk), .we(dww_we[gw]), .waddr(dww_waddr[$clog2(DWDEPTH)-1:0]), .wdata(dww_wdata),
+                    .raddr(dww_a), .rdata(wd_src[gw*128 +: 128]));
             end
         end else begin : G_DWX
             assign wd_src = wd_flat;

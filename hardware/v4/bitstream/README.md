@@ -1,5 +1,44 @@
 # v4 board bitstreams
 
+## Generic accelerator, depthwise biases fixed, 180.0 MHz (2026-10-09) -- CURRENT
+
+`v4_board_area_180.bit` / `.bin` -- RTL 3d1e425 (param_lutram: every
+parameter LUTRAM chunk in its own kept module; depthwise at 8 MACs with
+its requant at 8 lanes; Quad-SPI-only host link), core MMCM
+CLKOUT0_DIVIDE_F 7.75: core 180.0 MHz (5.556 ns), ui_clk 155.0 MHz.
+From-scratch P&R at 189.15 MHz (O = 7.375, Vivado/v4_board_g199: core WNS
+-0.180) with only the core MMCM divider then set to 7.75 on the routed
+design (`vivado/eco_core_mmcm_divide.tcl` method): WNS +0.088 ns, WHS
++0.018 ns, 0 routing errors. Synthesis check
+`vivado/check_param_ram_we.tcl`: 4,117 parameter RAMs, every chunk its own
+RAMs with its own write enable, 0 errors.
+Netlist proof: the post-synthesis netlist of THIS synthesis (Icarus +
+unisims, whole board over Quad-SPI) is bit-exact on the MobileFaceNet
+pass-1 output tensor (6,272 words, depthwise included), and end to end
+on bench_small and mlp784 (`docs/pnr/board/area/netlist_sim/RESULTS.md`).
+MobileFaceNet 515,986 cycles = 2.867 ms at 180.0 MHz.
+`.bit` sha256 cb3d32c2395936e1269eb4ccf6eca3e5202992820d7527e7895d46e568daca9d
+`.bin` sha256 62b44a3ce95f559ffaebbc497789ec7975f9f5708bf582e5b95cfe6db6754b1a
+Checkpoint (not in git): ~/Develop/FPGA-Neural/bitstreams/v4_board_area_180.dcp.
+
+`v4_board_area_186.bit` / `.bin` -- same RTL and same P&R as v4_board_area_180,
+plus the post-route phys_opt / route loop (`vivado/eco_postroute_loop.tcl`:
+core WNS at 189.15 MHz -0.180 -> -0.004 ns), then CLKOUT0_DIVIDE_F 7.5:
+core 186.0 MHz (5.376 ns), core WNS +0.086 ns. Overall WNS 0.000 ns (met,
+no margin) on a MIG-internal calibration path in ui_clk
+(ddr_phy_rdlvl rdlvl_stg1_done_int), which the reroute brought from
++0.120 to 0.000; WHS +0.027 ns, 0 routing errors.
+`.bit` sha256 c7a0b5768ac5a06101387fa325fceabb91b6fae07626a0fd5f85fc33ae71eac6
+`.bin` sha256 b73fc775c544fbc09a106d902ca22156b15cd6291c384224529a574d8088d732
+Checkpoint: ~/Develop/FPGA-Neural/bitstreams/v4_board_area_186.dcp.
+MobileFaceNet 515,986 cycles = 2.774 ms at 186.0 MHz.
+
+> **v4_board_area_189 and v4_board_area_196 (below) are WRONG for
+> depthwise networks**: their netlist fused the 5 dw requant parameter
+> chunks into one written only by chunk 4's enable (the dw biases were
+> overwritten), found by the netlist simulation (pass 1 wrong on all
+> 6,272 words). Kept only as timing references.
+
 ## Generic accelerator, 195.8 MHz (2026-10-08)
 
 `v4_board_area_196.bit` / `.bin` -- same RTL as v4_board_area_189 (5fce52b),

@@ -216,7 +216,13 @@ module dwpw_engine #(
     reg [4:0]     s2_cnt;
     reg [3:0]     s2_wr, s2_rd;
     reg [3:0]     infl;              // beats between S1 pop and S2 push
-    wire s1_pop = (s1_cnt != 3'd0) && ({1'b0, s2_cnt} + {2'b0, infl} < S2D - 1);
+    // DW_HALF: the dw requant has P/2 lanes, used for the low then the high
+    // half of a beat, so pops are kept >= 2 cycles apart (the depthwise
+    // delivers at most one beat every 2 cycles anyway)
+    reg  pop_blk;
+    wire s1_pop = (s1_cnt != 3'd0) && ({1'b0, s2_cnt} + {2'b0, infl} < S2D - 1) &&
+                  !(DW_HALF != 0 && pop_blk);
+    localparam RQD = (DW_HALF != 0) ? RQL + 1 : RQL;   // pop -> S2 push
 
     // P0: popped beat ; P1: params registered next to it
     reg           p0_v, p0_l, p1_v, p1_l;
@@ -226,9 +232,9 @@ module dwpw_engine #(
     reg signed [8*P-1:0]  p1_alpha;
     assign rq_g = p0_g;
 
-    reg  [RQL-1:0] rq_v;
-    reg  [RQL-1:0] rq_last;
-    wire rq_out_v = rq_v[RQL-1];
+    reg  [RQD-1:0] rq_v;
+    reg  [RQD-1:0] rq_last;
+    wire rq_out_v = rq_v[RQD-1];
     wire s2_pop;
 
     always @(posedge clk) begin
@@ -240,8 +246,8 @@ module dwpw_engine #(
         p1_bias <= dw_bias; p1_alpha <= dw_alpha;
         if (rst || start) begin
             s1_cnt <= 3'd0; s1_wr <= 2'd0; s1_rd <= 2'd0;
-            p0_v <= 1'b0; p1_v <= 1'b0;
-            rq_v <= {RQL{1'b0}}; rq_last <= {RQL{1'b0}};
+            p0_v <= 1'b0; p1_v <= 1'b0; pop_blk <= 1'b0;
+            rq_v <= {RQD{1'b0}}; rq_last <= {RQD{1'b0}};
             infl <= 4'd0;
         end else begin
             if (s1_push) s1_wr <= s1_wr + 2'd1;
@@ -249,22 +255,52 @@ module dwpw_engine #(
             s1_cnt <= s1_cnt + s1_push - s1_pop;
             p0_v <= s1_pop;
             p1_v <= p0_v;
-            rq_v    <= {rq_v[RQL-2:0], p1_v};
-            rq_last <= {rq_last[RQL-2:0], p1_v & p1_l};
+            pop_blk <= s1_pop;
+            rq_v    <= {rq_v[RQD-2:0], p1_v};
+            rq_last <= {rq_last[RQD-2:0], p1_v & p1_l};
             infl <= infl + s1_pop - rq_out_v;
         end
     end
 
     wire signed [PW-1:0] rq_y;
-    requant_act #(.N(P), .IN_W(20)) u_rq_dw (
-        .clk(clk), .en(1'b1),
-        .acc(p1_y), .bias(p1_bias), .alpha(p1_alpha),
-        .shift(dw_shift), .ash(dw_ash), .act(dw_act),
-        .y(rq_y)
-    );
+    generate
+        if (DW_HALF != 0) begin : G_RQH
+            // low half of the beat in p1 (p1_v), high half one cycle later
+            // from the hold registers; results RQL and RQL+1 cycles later,
+            // the low one held and pushed with the high one (2026-10-08 area
+            // cut: a 16-lane dw requant was 4,230 LUT, half of it idle)
+            localparam H = P/2;
+            reg signed [20*H-1:0] hy;
+            reg signed [32*H-1:0] hb;
+            reg signed [8*H-1:0]  ha;
+            reg                   hv;
+            always @(posedge clk) begin
+                hv <= p1_v && !(rst || start);
+                hy <= p1_y[DWB-1:20*H]; hb <= p1_bias[32*P-1:32*H]; ha <= p1_alpha[8*P-1:8*H];
+            end
+            wire signed [8*H-1:0] yh;
+            requant_act #(.N(H), .IN_W(20)) u_rq_dw (
+                .clk(clk), .en(1'b1),
+                .acc(hv ? hy : p1_y[20*H-1:0]), .bias(hv ? hb : p1_bias[32*H-1:0]),
+                .alpha(hv ? ha : p1_alpha[8*H-1:0]),
+                .shift(dw_shift), .ash(dw_ash), .act(dw_act),
+                .y(yh)
+            );
+            reg signed [8*H-1:0] yl;
+            always @(posedge clk) if (rq_v[RQL-1]) yl <= yh;   // low half out
+            assign rq_y = {yh, yl};
+        end else begin : G_RQF
+            requant_act #(.N(P), .IN_W(20)) u_rq_dw (
+                .clk(clk), .en(1'b1),
+                .acc(p1_y), .bias(p1_bias), .alpha(p1_alpha),
+                .shift(dw_shift), .ash(dw_ash), .act(dw_act),
+                .y(rq_y)
+            );
+        end
+    endgenerate
 
     always @(posedge clk) begin
-        if (rq_out_v) begin s2_y[s2_wr] <= rq_y; s2_l[s2_wr] <= rq_last[RQL-1]; end
+        if (rq_out_v) begin s2_y[s2_wr] <= rq_y; s2_l[s2_wr] <= rq_last[RQD-1]; end
         if (rst || start) begin
             s2_cnt <= 5'd0; s2_wr <= 4'd0; s2_rd <= 4'd0;
         end else begin

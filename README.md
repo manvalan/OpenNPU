@@ -12,12 +12,12 @@ compute units run it with the data kept on chip between layers.
 | FPGA | Xilinx Artix-7 XC7A100T-CSG324-2 |
 | Memory | 2x DDR3 (32-bit), MIG at 310 MHz |
 | Compute | 16 compute units, 2 INT8 MACs per DSP48, 3x3 depthwise + 1x1 pointwise fused engine, dense 3x3, pooling, upsample, concat |
-| Clock | 189.15 MHz (timing closed) |
+| Clock | 180.0 MHz (timing closed with margin, post-synthesis netlist verified) |
 | Host link | Quad-SPI to an ESP32-S3 |
-| Benchmark | MobileFaceNet in 2.73 ms, about 91x faster than ESP-DL on the ESP32-S3 (248.8 ms) |
+| Benchmark | MobileFaceNet in 2.87 ms, about 87x faster than ESP-DL on the ESP32-S3 (248.8 ms) |
 
 **Status (October 2026):** RTL verified in simulation, bit-exact on 7
-networks; bitstream timing closed; the 8-layer hardware module is being routed
+networks; bitstream timing closed at 180 MHz and its netlist simulated bit-exact; the 8-layer hardware module is being routed
 in KiCad. Nothing has run on real silicon yet.
 
 ## Read first

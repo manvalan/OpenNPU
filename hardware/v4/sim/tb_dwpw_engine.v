@@ -61,7 +61,8 @@ module tb;
     wire [5:0] o_cot;
     wire signed [8*P_CO-1:0] o_ya, o_yb;
 
-    dwpw_engine #(.P(P), .P_CO(P_CO), .N_DSP_COLS(NDSP), .MAXW(MAXW), .MAXNG(MAXNG), .MAXNCO(MAXNCO)) dut (
+    dwpw_engine #(.P(P), .P_CO(P_CO), .N_DSP_COLS(NDSP), .MAXW(MAXW), .MAXNG(MAXNG), .MAXNCO(MAXNCO),
+                  .DW_HALF(`ifdef TB_DW_HALF 1 `else 0 `endif)) dut (
         .clk(clk), .rst(rst), .start(start), .done(done),
         .cfg_w_i(cfg_w), .cfg_h_i(cfg_h), .cfg_ng_i(cfg_ng), .cfg_nco_i(cfg_nco), .cfg_stride2_i(cfg_stride2), .cfg_pw_only_i(cfg_pw_only),
         .dw_shift_i(dw_shift), .dw_ash_i(dw_ash), .dw_act_i(dw_act),

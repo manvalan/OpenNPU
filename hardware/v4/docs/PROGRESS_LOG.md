@@ -1415,3 +1415,35 @@ mikilab session (RTL owner on v4-generic-area since CUTS_NEXT_TODO).
   +0.030, 0 routing errors: `bitstream/v4_board_area_196.bit/.bin`
   (2.635 ms MobileFaceNet). Scripts `vivado/eco_postroute_loop.tcl`,
   `vivado/eco_core_mmcm_divide.tcl` (paths of the mikilab session inside).
+
+## V4-B18 (2026-10-09) — dw requant biases fused by synthesis; param_lutram; 180 MHz bitstream
+
+- Netlist sim (pass-1 tensor vs expect.txt) of 5fce52b: all 6,272 words
+  wrong; dw MAC beats identical to RTL. Cause in the netlist: the 5
+  GEN_DWQ chunks (same write address/data) fused into one memory written
+  only by we_dwq[4] (dw biases overwritten with the alpha chunk). So
+  v4_board_area_189/196 are wrong for depthwise networks.
+- Fix (46d1dbf): every parameter LUTRAM chunk (dw weights, dw/pw requant)
+  in `rtl/param_lutram.v` (keep_hierarchy). Check
+  `vivado/check_param_ram_we.tcl` (each chunk its own RAMs, WE from
+  we_*_reg[k]): flags the old netlist, 0 errors on the new one (4,117
+  RAMs). Netlist sim of 46d1dbf: pass 1 bit-exact (6,272 words).
+- Cut 1 (AREA_199_TODO): dw requant at P/2 lanes under DW_HALF (pops
+  >= 2 cycles apart). A requant change (offset into the product stage)
+  became the worst path (-0.497 at 189) and was reverted (3d1e425).
+- 3d1e425: 7 nets bit-exact (mfn 519,408, bench_medium 95,563), regression
+  11/11, board MFN 515,986 cycles. P&R at 189.15 MHz: core -0.180;
+  divider 7.75 on the routed design: 180.0 MHz, WNS +0.088, WHS +0.018 ->
+  `bitstream/v4_board_area_180`. Netlist sim of this synthesis: MobileFaceNet
+  pass 1 bit-exact (6,272 words), bench_small and mlp784 end to end bit-exact.
+
+## V4-B19 (2026-10-09) — v4_board_area_180 released
+
+- Signoff on the routed design (`docs/pnr/board/fix/r189/div_O7_750/`):
+  WNS +0.088, WHS +0.018, 0 failing endpoints, 4.74 W; Quad-SPI pad timing
+  setup 2.80 / hold 1.27 ns at the FPGA pins, clock-to-pad 8.52 ns max.
+- Gate-level netlist of the same synthesis: MobileFaceNet pass 1,
+  bench_small and mlp784 bit-exact over the whole board.
+- Release record `bitstream/PRODUCTION_v4_board_area_180.md` (rebuild
+  steps, waivers); tag `v4-board-area-180`. Open: measure the ESP32-S3
+  Quad-SPI timing on the first board (fallback 40 MHz).

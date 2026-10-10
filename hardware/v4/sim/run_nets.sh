@@ -13,7 +13,7 @@ PY=${2:-python3}
 NETS=${NETS:-"bench_small bench_medium resnet_s vgg_pool mfn unet_s mlp784"}
 mkdir -p $OUT
 source ${OSS_CAD:-$HOME/tools_cache/oss-cad-suite}/environment
-CORE="rtl/v4_core.v rtl/gdconv_unit.v rtl/param_loader.v rtl/im2col_feeder.v rtl/fmap_mem.v rtl/fmap_feeder.v rtl/conv3_feeder.v rtl/pool_unit.v rtl/tile_writer.v rtl/dwpw_engine.v rtl/dw_linebuf_grouped.v rtl/depthwise_mac3x3_pipe.v rtl/requant_act.v rtl/pw_array_packed.v"
+CORE="rtl/v4_core.v rtl/param_lutram.v rtl/gdconv_unit.v rtl/param_loader.v rtl/im2col_feeder.v rtl/fmap_mem.v rtl/fmap_feeder.v rtl/conv3_feeder.v rtl/pool_unit.v rtl/tile_writer.v rtl/dwpw_engine.v rtl/dw_linebuf_grouped.v rtl/depthwise_mac3x3_pipe.v rtl/requant_act.v rtl/pw_array_packed.v"
 fail=0
 for n in $NETS; do
     D=$OUT/$n; mkdir -p $D

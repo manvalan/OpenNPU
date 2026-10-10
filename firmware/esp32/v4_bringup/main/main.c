@@ -15,6 +15,12 @@
 //    check that every result is still identical to the golden one.
 //
 // model/model.bin and model/golden.bin come from ../make_model.sh.
+
+// core clock of the bitstream in use (hardware/v4/bitstream/README.md):
+// v4_board_area_180 = 180.0 MHz (MMCM O = 7.75 on ui_clk 155.0 MHz)
+#ifndef V4_CORE_MHZ
+#define V4_CORE_MHZ 180.0
+#endif
 #include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -144,7 +150,7 @@ void app_main(void)
     }
     ESP_LOGI(TAG, "%d inferences: ESP32 view %lld us average, %lld us best (image write + start + done + result read)",
              CONFIG_V4_BENCH_RUNS, (long long)(total / CONFIG_V4_BENCH_RUNS), (long long)best);
-    ESP_LOGI(TAG, "FPGA core: %u cycles (%u waiting for parameters) = %u us at 199.34 MHz, %u us at 189.20 MHz",
-             (unsigned)cyc, (unsigned)wait, (unsigned)(cyc / 199.34), (unsigned)(cyc / 189.20));
+    ESP_LOGI(TAG, "FPGA core: %u cycles (%u waiting for parameters) = %u us at %.2f MHz",
+             (unsigned)cyc, (unsigned)wait, (unsigned)(cyc / V4_CORE_MHZ), V4_CORE_MHZ);
     ESP_LOGI(TAG, "results different from golden: %d of %d", bad, CONFIG_V4_BENCH_RUNS);
 }

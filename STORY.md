@@ -208,18 +208,18 @@ A new rule came out of it: **no bitstream without a post-synthesis
 netlist simulation** proving the parameter memories are actually
 written.
 
-The same evening, the first generic build with every parameter memory
-driven closed timing at **189.15 MHz**. MobileFaceNet takes
-515,968 cycles, **2.73 ms: about 91x faster than ESP-DL** on the
-ESP32-S3. Short of 100x, and we say so.
+The generic build with every parameter memory driven closes timing at
+**180.0 MHz**, with margin on every clock, and its post-synthesis netlist
+is bit-exact. MobileFaceNet takes 515,986 cycles, **2.87 ms: about 87x
+faster than ESP-DL** on the ESP32-S3. Short of 100x, and we say so.
 
-## 9. Where we are (8 October 2026)
+## 9. Where we are (9 October 2026)
 
 | What | Status |
 |---|---|
 | Generic RTL | verified in simulation, 11/11 tests, 7 networks bit-exact |
-| Bitstream | generic build closes timing at 189.15 MHz; 199 MHz in progress |
-| Benchmark network | 2.73 ms at 189.15 MHz, about 91x ESP-DL |
+| Bitstream | generic build at 180.0 MHz, timing closed with margin, netlist simulated bit-exact |
+| Benchmark network | 2.87 ms at 180.0 MHz, about 87x ESP-DL |
 | CPU baselines | ESP32-S3, ESP32-C6, RP2350, Raspberry Pi 5, all archived |
 | Physical module | 8-layer PCB in KiCad, DDR3 data lanes routed, address/clock routing in progress |
 | Next | finish routing, fabricate, hand-assemble, bring up, run the first network on real silicon |

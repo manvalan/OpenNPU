@@ -35,7 +35,7 @@ reset_target all [get_ips mig_7series_0]
 generate_target all [get_ips mig_7series_0]
 
 # ---- design sources (by reference) ----
-set rtl_v4 {v4_board_top v4_boot v4_ddr_stream async_fifo v4_core im2col_feeder param_loader
+set rtl_v4 {v4_board_top param_lutram v4_boot v4_ddr_stream async_fifo v4_core im2col_feeder param_loader
             gdconv_unit fmap_mem fmap_feeder conv3_feeder pool_unit tile_writer dwpw_engine dw_linebuf_grouped
             depthwise_mac3x3_pipe requant_act pw_array_packed qspi_data_port}
 foreach m $rtl_v4 { add_files -norecurse $v4/rtl/$m.v }
